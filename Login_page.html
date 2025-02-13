@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #93fc7b;
+        }
+        .login-selection {
+            background: rgb(235, 242, 25);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .login-selection h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .proceed-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #49d217;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .proceed-btn:hover {
+            background-color: #49d217;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-selection">
+        <h2>Select Login Type</h2>
+        <div class="input-group">
+            <label for="login-type">Login As</label>
+            <select id="login-type">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+        </div>
+        <button class="proceed-btn" onclick="redirectToLogin()">Proceed</button>
+    </div>
+
+    <script>
+        function redirectToLogin() {
+            let loginType = document.getElementById("login-type").value;
+            if (loginType === "user") {
+                window.location.href = "user-login.html";
+            } else {
+                window.location.href = "admin-login.html";
+            }
+        }
+    </script>
+</body>
+</html>
