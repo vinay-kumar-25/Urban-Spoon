@@ -1,483 +1,639 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Food Menu</title>
-<link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Bungee+Tint&family=Coustard:wght@400;900&family=Fira+Code:wght@300..700&family=Lobster&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Bungee+Tint&family=Coustard:wght@400;900&family=Fira+Code:wght@300..700&family=Lobster&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            font-family: sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f8f8; /* Light background color */
-        }
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8; /* Light background color */
+      }
+      .menu-section {
+  padding: 20px;
+  background-color: #f1f08c;
+  background: linear-gradient(rgb(250, 250, 185),rgb(148, 230, 148)); /* Light green background for sections */
+  margin: 20px;
+  border: 2px solid rgb(15, 119, 15);
+  border-radius: 10px;
+}
 
+.photo {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 30px;
+  max-width: 100%;
+}
 
-        .menu-section {
-            padding: 20px;
-            background-color: #e0ffe0; /* Light green background for sections */
-            margin: 20px;
-            border: 2px solid rgb(15, 119, 15);
-            border-radius: 10px;
-            
-        }
-         .photo{
-            height: 10vh;
-            width: 10vh;
-            border-radius: 10px;
-            
-         }
-        .section-title {
-            font-family: Lobster;
-            font-size: 1.5em;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: rgb(15, 119, 15) ;/* Darker text color for titles */
-        }
+.section-title {
+  font-family: Lobster;
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: rgb(15, 119, 15); /* Darker text color for titles */
+  text-align: center;
+}
 
-        .food-item-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
-            gap: 20px;
-        }
+.food-item-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  justify-content: center;
 
+}
+
+.food-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: white;
+  position: relative;
+}
+
+.food-name {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.food-description {
+  color: #666; /* Slightly lighter text for descriptions */
+  margin-bottom: 10px;
+}
+
+.food-price {
+  color: #008000; /* Green price */
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
         .food-item {
-            display: flex;
-            gap: 10px;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-            position: relative; /* For absolute positioning of price */
+          grid-column: span 1; /* Each item takes full width on smaller screens */
         }
-
-        .food-name {
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .food-description {
-            color: #666; /* Slightly lighter text for descriptions */
-            margin-bottom: 20px;
-        }
-
-        .food-price {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            color: #008000; /* Green price */
-            font-weight: bold;
-        }
-
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-           .food-item {
-               grid-column: span 1; /* Each item takes full width on smaller screens */
-           }
-        }
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="menu-section">
-        <h2 class="section-title">Simple Veg Pizza</h2>
-        <div class="food-item-container">
-            <div class="food-item" >
-                <div>
-                <img src="pizza1.webp" alt="" class="photo">
-                </div>
-                <div>
-                <div class="food-name">Margherita</div>
-                <div class="food-description">Margherita pizza is a classic Italian pizza known for its simplicity and fresh ingredients.</div>
-                <div class="food-price">₹99 / ₹199 / ₹309</div>
-                </div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Corn Cheese Pizza</div>
-                <div class="food-description">Corn cheese pizza is a delicious variation...</div>
-                <div class="food-price">₹109 / ₹209 / ₹309</div>
-            </div>
-            </div>
-    </div>
-
-    <div class="menu-section">
-        <h2 class="section-title">Special Veg Pizza</h2>
-        <div class="food-item-container">
-            <div class="food-item">
-                <div class="food-name">Farm House</div>
-                <div class="food-description">A farmhouse pizza loaded with fresh vegetables, tomatoes, and tasty mushrooms. It contains a variety of fresh, nutritious ingredients.</div>
-                <div class="food-price">₹179 / ₹329 / ₹469</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Country Special</div>
-                <div class="food-description">A country specialty pizza featuring delicious native ingredients like tomatoes, onions, and bell peppers.</div>
-                <div class="food-price">₹179 / ₹329 / ₹469</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Paneer Pizza</div>
-                <div class="food-description">A fusion of spicy peri peri paneer, crunchy capsicum, and caramelized onions, topped with melted mozzarella.</div>
-                <div class="food-price">₹179 / ₹329 / ₹469</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Green Veg</div>
-                <div class="food-description">A fresh and healthy pizza topped with green vegetables like onion, capsicum, green chillies, and coriander leaves.</div>
-                <div class="food-price">₹179 / ₹329 / ₹469</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Double Cheese</div>
-                <div class="food-description">A cheesy delight with an extra layer of mozzarella and another cheese variety for a rich, gooey texture.</div>
-                <div class="food-price">₹179 / ₹329 / ₹469</div>
-            </div>
+      <h2 class="section-title">Simple Veg Pizza</h2>
+      <div class="food-item-container">
+        <div class="food-item">
+          <img src="pizza1.webp" alt="" class="photo" />
+          <div class="food-name">Margherita</div>
+          <div class="food-description">
+            Margherita pizza is a classic Italian pizza known for its
+            simplicity and fresh ingredients.
+          </div>
+          <div class="food-price">₹99 / ₹199 / ₹309</div>
         </div>
+        <div class="food-item">
+          <img src="corncheeze.webp" alt="" class="photo" />
+          <div class="food-name">Corn Cheese Pizza</div>
+          <div class="food-description">
+            Corn cheese pizza is a delicious variation...
+          </div>
+          <div class="food-price">₹109 / ₹209 / ₹309</div>
+        </div>
+        <div class="food-item">
+          <img src="greenveg.webp" alt="" class="photo" />
+          <div class="food-name">Green Veg</div>
+          <div class="food-description">
+            A fresh and healthy pizza topped with green vegetables like onion,
+            capsicum, green chillies, and coriander leaves.
+          </div>
+          <div class="food-price">₹179 / ₹329 / ₹469</div>
+        </div>
+      </div>
     </div>
     
 
     <div class="menu-section">
-        <h2 class="section-title">Veg Different Sauces</h2>
-        <div class="food-item-container">
-            <div class="food-item">
-                <div class="food-name">Schezwan Pizza</div>
-                <div class="food-description">Spice things up with this fiery pizza, featuring a bold Schezwan sauce base, zesty onions, sizzling jalapeños, green chilies, and crunchy capsicum. A tantalizing kick in every bite.</div>
-                <div class="food-price">₹209 / ₹369 / ₹499</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Mexican Salsa Pizza</div>
-                <div class="food-description">A zesty Mexican salsa sauce forms the perfect base, topped with fiery jalapeños, crisp capsicum, sweet onions, and smoky red paprika for a bold, savory experience.</div>
-                <div class="food-price">₹209 / ₹369 / ₹499</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Makhani Pizza</div>
-                <div class="food-description">A fusion of flavors with a luscious makhani sauce base, topped with crisp capsicum, sweet onions, vibrant peas, and spicy peri peri paneer cubes.</div>
-                <div class="food-price">₹209 / ₹369 / ₹499</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Tandoori Pizza</div>
-                <div class="food-description">Savor the smoky goodness of tandoori sauce, paired with sweet golden corn, crisp capsicum, and succulent tandoori paneer cubes for a truly irresistible taste.</div>
-                <div class="food-price">₹209 / ₹369 / ₹499</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Achari Pizza</div>
-                <div class="food-description">A bold burst of flavors with a tangy pickle sauce base, spicy jalapeños, zesty onions, and fiery peri peri paneer cubes, delivering heat, spice, and tang in every bite.</div>
-                <div class="food-price">₹209 / ₹369 / ₹499</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Basil Pesto Pizza</div>
-                <div class="food-description">A fragrant basil sauce base, topped with sweet corn, spicy peri peri paneer cubes, and zesty onions, creating a herby, savory, and slightly tangy delight.</div>
-                <div class="food-price">₹209 / ₹369 / ₹499</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">5 Pepper</div>
-                <div class="food-description">Packed with heat and color, this pizza features a fiery mix of red paprika, spicy jalapeños, green chilies, and crunchy red and yellow bell peppers.</div>
-                <div class="food-price">₹209 / ₹369 / ₹499</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Spicy Tango Pizza</div>
-                <div class="food-description">A contrast of flavors with sweet golden corn, smoky red paprika, spicy jalapeños, and briny olives, balancing heat, sweetness, and savory richness.</div>
-                <div class="food-price">₹209 / ₹369 / ₹499</div>
-            </div>
+      <h2 class="section-title">Special Veg Pizza</h2>
+      <div class="food-item-container">
+        <div class="food-item">
+          <img src="farmhouse.webp" alt="" class="photo" />
+          <div class="food-name">Farm House</div>
+          <div class="food-description">
+            A farmhouse pizza loaded with fresh vegetables, tomatoes, and tasty
+            mushrooms. It contains a variety of fresh, nutritious ingredients.
+          </div>
+          <div class="food-price">₹179 / ₹329 / ₹469</div>
         </div>
-    </div>
-    
+        <div class="food-item">
+          <img src="countryspecial.webp" alt="" class="photo" />
 
-    <div class="menu-section">
-        <h2 class="section-title">Veg Special</h2>
-        <div class="food-item-container">
-            <div class="food-item">
-                <div class="food-name">Deluxe Veggie</div>
-                <div class="food-description">This pizza is a colorful medley of fresh flavors, topped with crunchy capsicum, sweet onions, earthy mushrooms, tender golden corn, and creamy paneer.</div>
-                <div class="food-price">₹249 / ₹429 / ₹579</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Veg Loaded</div>
-                <div class="food-description">This pizza brings a delightful combination of tangy tomatoes, spicy jalapeños, sweet golden corn, earthy mushrooms, and briny olives.</div>
-                <div class="food-price">₹249 / ₹429 / ₹579</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Veg Supreme</div>
-                <div class="food-description">Topped with crisp onions, sweet capsicum, earthy mushrooms, juicy tomatoes, tender golden corn, spicy jalapeños, and briny black olives.</div>
-                <div class="food-price">₹249 / ₹429 / ₹579</div>
-            </div>
+          <div class="food-name">Country Special</div>
+          <div class="food-description">
+            A country specialty pizza featuring delicious native ingredients
+            like tomatoes, onions, and bell peppers.
+          </div>
+          <div class="food-price">₹179 / ₹329 / ₹469</div>
         </div>
-    </div>
-    
-    <div class="menu-section">
-        <h2 class="section-title">Starters</h2>
-        <div class="food-item-container">
-            <div class="food-item">
-                <div class="food-name">Spicy Cheese Pockets</div>
-                <div class="food-description">The Spicy Cheese Pocket is available in Veg and Chicken options. The Veg version features cheese sauce, hot garlic, onions, capsicum, and paneer, while the Chicken version includes cheese sauce, hot garlic, peri-peri chicken, onions, and capsicum. Both are wrapped in a crispy, golden pastry for a spicy, cheesy treat.</div>
-                <div class="food-price">₹95 / ₹105</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Garlic Bread</div>
-                <div class="food-description">Garlic bread is the ultimate savory treat, with a golden, crispy crust brushed generously with rich, aromatic garlic butter. Every bite delivers a perfect balance of buttery, garlicky goodness, making it the ideal accompaniment to any meal or a satisfying snack on its own.</div>
-                <div class="food-price">₹70</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Stuffed Garlic Bread</div>
-                <div class="food-description">A crispy, buttery garlic bread filled with a rich blend of cheese sauce, mozzarella, jalapeños, and corn. The Non-Veg version includes tender chicken tikka, adding a smoky, spiced flavor that perfectly complements the creamy, cheesy filling. Each bite is a flavorful, indulgent mix of spice, cheese, and savory chicken.</div>
-                <div class="food-price">₹110 / ₹150</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Cheese Bites</div>
-                <div class="food-description">Crispy cheese bites filled with creamy cheese sauce and savory garlic sauce, served in six delicious slices. A perfect blend of crunch and flavor!</div>
-                <div class="food-price">₹100</div>
-            </div>
-           
+        <div class="food-item">
+          <img src="paneer.webp" alt="" class="photo" />
+          <div class="food-name">Paneer Pizza</div>
+          <div class="food-description">
+            A fusion of spicy peri peri paneer, crunchy capsicum, and
+            caramelized onions, topped with melted mozzarella.
+          </div>
+          <div class="food-price">₹179 / ₹329 / ₹469</div>
         </div>
-    </div>
-    
-    <div class="menu-section">
-        <h2 class="section-title">Burger</h2>
-        <div class="food-item-container">
-            <div class="food-item">
-                <div class="food-name">Veg Burger</div>
-                <div class="food-description">A delicious burger filled with fresh onions, tomatoes, and a crispy potato patty, topped with creamy thousand sauce and rich cheese sauce. The perfect combination of crunch, creaminess, and savory flavors in every bite.</div>
-                <div class="food-price">₹59 / ₹79</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Spicy Veg Burger</div>
-                <div class="food-description">A delicious burger filled with fresh onions, tomatoes, and a crispy potato patty, topped with creamy chipotle sauce and rich cheese sauce. The perfect combination of crunch, creaminess, and savory flavors in every bite.</div>
-                <div class="food-price">₹69 / ₹89</div>
-            </div>
        
-            <div class="food-item">
-                <div class="food-name">Veg Double Patty Burger</div>
-                <div class="food-description">A delicious burger stacked with two crispy potato patties, fresh onions, and tomatoes. It's generously topped with creamy thousand sauce and rich cheese sauce, delivering a satisfying combination of crunch, creaminess, and savory flavor in every bite.</div>
-                <div class="food-price">₹89 / ₹109</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Basil Veg Burger</div>
-                <div class="food-description">A delicious burger filled with fresh onions, tomatoes, and a crispy potato patty, topped with creamy basil sauce and rich cheese sauce. The perfect combination of crunch, creaminess, and savory flavors in every bite.</div>
-                <div class="food-price">₹69 / ₹89</div>
-            </div>
+        <div class="food-item">
+          <img src="doublecheeze.webp" alt="" class="photo" />
+          <div class="food-name">Double Cheese</div>
+          <div class="food-description">
+            A cheesy delight with an extra layer of mozzarella and another
+            cheese variety for a rich, gooey texture.
+          </div>
+          <div class="food-price">₹179 / ₹329 / ₹469</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <h2 class="section-title">Veg Different Sauces</h2>
+      <div class="food-item-container">
+        <div class="food-item">
+          <img src="schezwan.webp" alt="" class="photo" />
+          <div class="food-name">Schezwan Pizza</div>
+          <div class="food-description">
+            Spice things up with this fiery pizza, featuring a bold Schezwan
+            sauce base, zesty onions, sizzling jalapeños, green chilies, and
+            crunchy capsicum. A tantalizing kick in every bite.
+          </div>
+          <div class="food-price">₹209 / ₹369 / ₹499</div>
+        </div>
+        <div class="food-item">
+          <img src="mexicansalsa.webp" alt="" class="photo" />
+          <div class="food-name">Mexican Salsa Pizza</div>
+          <div class="food-description">
+            A zesty Mexican salsa sauce forms the perfect base, topped with
+            fiery jalapeños, crisp capsicum, sweet onions, and smoky red paprika
+            for a bold, savory experience.
+          </div>
+          <div class="food-price">₹209 / ₹369 / ₹499</div>
+        </div>
+        <div class="food-item">
+          <img src="makani.webp" alt="" class="photo" />
+          <div class="food-name">Makhani Pizza</div>
+          <div class="food-description">
+            A fusion of flavors with a luscious makhani sauce base, topped with
+            crisp capsicum, sweet onions, vibrant peas, and spicy peri peri
+            paneer cubes.
+          </div>
+          <div class="food-price">₹209 / ₹369 / ₹499</div>
+        </div>
+        <div class="food-item">
+          <img src="tandoori.webp" alt="" class="photo" />
+          <div class="food-name">Tandoori Pizza</div>
+          <div class="food-description">
+            Savor the smoky goodness of tandoori sauce, paired with sweet golden
+            corn, crisp capsicum, and succulent tandoori paneer cubes for a
+            truly irresistible taste.
+          </div>
+          <div class="food-price">₹209 / ₹369 / ₹499</div>
+        </div>
+        <div class="food-item">
+          <img src="achari.webp" alt="" class="photo" />
+          <div class="food-name">Achari Pizza</div>
+          <div class="food-description">
+            A bold burst of flavors with a tangy pickle sauce base, spicy
+            jalapeños, zesty onions, and fiery peri peri paneer cubes,
+            delivering heat, spice, and tang in every bite.
+          </div>
+          <div class="food-price">₹209 / ₹369 / ₹499</div>
+        </div>
           
-        </div>
+      </div>
     </div>
-    
-    <div class="menu-section">
-        <h2 class="section-title">Pasta</h2>
-        <div class="food-item-container">
-            <div class="food-item">
-                <div class="food-name">White Pasta (Veg)</div>
-                <div class="food-description">Creamy cheese sauce wraps around perfectly cooked pasta, filled with sautéed mushrooms, capsicum, and onions. Topped with olives for an extra layer of flavor, this dish is a rich, comforting combination of smooth sauce and savory vegetables.</div>
-                <div class="food-price">₹100</div>
-            </div>
-       
-            <div class="food-item">
-                <div class="food-name">Red Pasta (Veg)</div>
-                <div class="food-description">Creamy cheese and tomato based sauce wraps around perfectly cooked pasta, filled with sautéed corn, capsicum, and onions. Topped with olives for an extra layer of flavor, this dish is a rich, comforting combination of smooth sauce and savory vegetables.</div>
-                <div class="food-price">₹100</div>
-            </div>
-         
-            <div class="food-item">
-                <div class="food-name">Mix Sauce Pasta (Veg)</div>
-                <div class="food-description">Creamy mix sauce wraps around perfectly cooked pasta, filled with sautéed mushroom, corn, capsicum, and onions. Topped with olives for an extra layer of flavor, this dish is a rich, comforting combination of smooth sauce and savory vegetables.</div>
-                <div class="food-price">₹120</div>
-            </div>
-      
-            <div class="food-item">
-                <div class="food-name">Basil Pesto Pasta (Veg)</div>
-                <div class="food-description">A fragrant basil sauce coats perfectly cooked pasta, filled with sweet corn, capsicum, and onions. Topped with olives for an extra burst of flavor, this dish offers a fresh, aromatic combination of creamy cheese sauce and vibrant vegetables.</div>
-                <div class="food-price">₹120</div>
-            </div>
-       
-        </div>
-    </div>
-    
 
     <div class="menu-section">
-        <h2 class="section-title">Desserts</h2>
-        <div class="food-item-container">
-            <div class="food-item">
-                <div class="food-name">Chocolava</div>
-                <div class="food-description">Chocolava Cake is a rich, indulgent dessert with a warm, molten chocolate center that flows out when cut. The outer layer is soft and cake-like, while the inside remains delightfully molten, providing a perfect chocolate experience. It’s the ultimate treat for chocolate lovers.</div>
-                <div class="food-price">₹99</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Brownie</div>
-                <div class="food-description">A rich, fudgy Brownie made with premium chocolate, offering a dense, moist texture and a perfectly sweet, chocolatey flavor. Served warm, it’s a simple yet indulgent dessert that satisfies every chocolate craving.</div>
-                <div class="food-price">₹99</div>
-            </div>
+      <h2 class="section-title">Veg Special</h2>
+      <div class="food-item-container">
+        <div class="food-item">
+          <div class="food-name">Deluxe Veggie</div>
+          <div class="food-description">
+            This pizza is a colorful medley of fresh flavors, topped with
+            crunchy capsicum, sweet onions, earthy mushrooms, tender golden
+            corn, and creamy paneer.
+          </div>
+          <div class="food-price">₹249 / ₹429 / ₹579</div>
         </div>
-    </div>
-    
-    <div class="menu-section">
-        <h2 class="section-title">Pan Pizza's - Veg</h2>
-        <div class="food-item-container">
-            <div class="food-item">
-                <div class="food-name">Pan Onion</div>
-                <div class="food-description">Classic pizza topped with fresh onions.</div>
-                <div class="food-price">₹79</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Pan Capsicum</div>
-                <div class="food-description">Pizza topped with crunchy capsicum slices.</div>
-                <div class="food-price">₹79</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Pan Tomato</div>
-                <div class="food-description">Pizza topped with tomato and its slices.</div>
-                <div class="food-price">₹79</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Pan Corn</div>
-                <div class="food-description">Pizza topped with sweet golden corn.</div>
-                <div class="food-price">₹89</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Pan Paneer</div>
-                <div class="food-description">Pizza topped with chunks of soft paneer.</div>
-                <div class="food-price">₹99</div>
-            </div>
+        <div class="food-item">
+          <div class="food-name">Veg Loaded</div>
+          <div class="food-description">
+            This pizza brings a delightful combination of tangy tomatoes, spicy
+            jalapeños, sweet golden corn, earthy mushrooms, and briny olives.
+          </div>
+          <div class="food-price">₹249 / ₹429 / ₹579</div>
         </div>
-    </div>
-    
-   
-    
-    <div class="menu-section">
-        <h2 class="section-title">Pizza Topping</h2>
-        <div class="food-item-container">
-            <div class="food-item">
-                <div class="food-name">Extra Cheese</div>
-                <div class="food-description">Extra Cheese adds an indulgent layer of extra melted cheese to your pizza, making each bite even more creamy and flavorful. Ideal for those who can’t get enough of that cheesy goodness, it enhances the pizza with a rich, melty texture and a satisfying, cheesy taste.</div>
-                <div class="food-price">₹40 / ₹50 / ₹70</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Veg Toppings</div>
-                <div class="food-description">Choose from black olives, onion, capsicum, paneer, mushroom, golden corn, tomato, jalapeno, red paprika.</div>
-                <div class="food-price">₹25 / ₹35 / ₹45</div>
-            </div>
-           
+        <div class="food-item">
+          <div class="food-name">Veg Supreme</div>
+          <div class="food-description">
+            Topped with crisp onions, sweet capsicum, earthy mushrooms, juicy
+            tomatoes, tender golden corn, spicy jalapeños, and briny black
+            olives.
+          </div>
+          <div class="food-price">₹249 / ₹429 / ₹579</div>
         </div>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <h2 class="section-title">Starters</h2>
+      <div class="food-item-container">
+        <div class="food-item">
+          <div class="food-name">Spicy Cheese Pockets</div>
+          <div class="food-description">
+            The Spicy Cheese Pocket is available in Veg and Chicken options. The
+            Veg version features cheese sauce, hot garlic, onions, capsicum, and
+            paneer, while the Chicken version includes cheese sauce, hot garlic,
+            peri-peri chicken, onions, and capsicum. Both are wrapped in a
+            crispy, golden pastry for a spicy, cheesy treat.
+          </div>
+          <div class="food-price">₹95 / ₹105</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Garlic Bread</div>
+          <div class="food-description">
+            Garlic bread is the ultimate savory treat, with a golden, crispy
+            crust brushed generously with rich, aromatic garlic butter. Every
+            bite delivers a perfect balance of buttery, garlicky goodness,
+            making it the ideal accompaniment to any meal or a satisfying snack
+            on its own.
+          </div>
+          <div class="food-price">₹70</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Stuffed Garlic Bread</div>
+          <div class="food-description">
+            A crispy, buttery garlic bread filled with a rich blend of cheese
+            sauce, mozzarella, jalapeños, and corn. The Non-Veg version includes
+            tender chicken tikka, adding a smoky, spiced flavor that perfectly
+            complements the creamy, cheesy filling. Each bite is a flavorful,
+            indulgent mix of spice, cheese, and savory chicken.
+          </div>
+          <div class="food-price">₹110 / ₹150</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Cheese Bites</div>
+          <div class="food-description">
+            Crispy cheese bites filled with creamy cheese sauce and savory
+            garlic sauce, served in six delicious slices. A perfect blend of
+            crunch and flavor!
+          </div>
+          <div class="food-price">₹100</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <h2 class="section-title">Burger</h2>
+      <div class="food-item-container">
+        <div class="food-item">
+          <div class="food-name">Veg Burger</div>
+          <div class="food-description">
+            A delicious burger filled with fresh onions, tomatoes, and a crispy
+            potato patty, topped with creamy thousand sauce and rich cheese
+            sauce. The perfect combination of crunch, creaminess, and savory
+            flavors in every bite.
+          </div>
+          <div class="food-price">₹59 / ₹79</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Spicy Veg Burger</div>
+          <div class="food-description">
+            A delicious burger filled with fresh onions, tomatoes, and a crispy
+            potato patty, topped with creamy chipotle sauce and rich cheese
+            sauce. The perfect combination of crunch, creaminess, and savory
+            flavors in every bite.
+          </div>
+          <div class="food-price">₹69 / ₹89</div>
+        </div>
+
+        <div class="food-item">
+          <div class="food-name">Veg Double Patty Burger</div>
+          <div class="food-description">
+            A delicious burger stacked with two crispy potato patties, fresh
+            onions, and tomatoes. It's generously topped with creamy thousand
+            sauce and rich cheese sauce, delivering a satisfying combination of
+            crunch, creaminess, and savory flavor in every bite.
+          </div>
+          <div class="food-price">₹89 / ₹109</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Basil Veg Burger</div>
+          <div class="food-description">
+            A delicious burger filled with fresh onions, tomatoes, and a crispy
+            potato patty, topped with creamy basil sauce and rich cheese sauce.
+            The perfect combination of crunch, creaminess, and savory flavors in
+            every bite.
+          </div>
+          <div class="food-price">₹69 / ₹89</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <h2 class="section-title">Pasta</h2>
+      <div class="food-item-container">
+        <div class="food-item">
+          <div class="food-name">White Pasta (Veg)</div>
+          <div class="food-description">
+            Creamy cheese sauce wraps around perfectly cooked pasta, filled with
+            sautéed mushrooms, capsicum, and onions. Topped with olives for an
+            extra layer of flavor, this dish is a rich, comforting combination
+            of smooth sauce and savory vegetables.
+          </div>
+          <div class="food-price">₹100</div>
+        </div>
+
+        <div class="food-item">
+          <div class="food-name">Red Pasta (Veg)</div>
+          <div class="food-description">
+            Creamy cheese and tomato based sauce wraps around perfectly cooked
+            pasta, filled with sautéed corn, capsicum, and onions. Topped with
+            olives for an extra layer of flavor, this dish is a rich, comforting
+            combination of smooth sauce and savory vegetables.
+          </div>
+          <div class="food-price">₹100</div>
+        </div>
+
+        <div class="food-item">
+          <div class="food-name">Mix Sauce Pasta (Veg)</div>
+          <div class="food-description">
+            Creamy mix sauce wraps around perfectly cooked pasta, filled with
+            sautéed mushroom, corn, capsicum, and onions. Topped with olives for
+            an extra layer of flavor, this dish is a rich, comforting
+            combination of smooth sauce and savory vegetables.
+          </div>
+          <div class="food-price">₹120</div>
+        </div>
+
+        <div class="food-item">
+          <div class="food-name">Basil Pesto Pasta (Veg)</div>
+          <div class="food-description">
+            A fragrant basil sauce coats perfectly cooked pasta, filled with
+            sweet corn, capsicum, and onions. Topped with olives for an extra
+            burst of flavor, this dish offers a fresh, aromatic combination of
+            creamy cheese sauce and vibrant vegetables.
+          </div>
+          <div class="food-price">₹120</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <h2 class="section-title">Desserts</h2>
+      <div class="food-item-container">
+        <div class="food-item">
+          <div class="food-name">Chocolava</div>
+          <div class="food-description">
+            Chocolava Cake is a rich, indulgent dessert with a warm, molten
+            chocolate center that flows out when cut. The outer layer is soft
+            and cake-like, while the inside remains delightfully molten,
+            providing a perfect chocolate experience. It’s the ultimate treat
+            for chocolate lovers.
+          </div>
+          <div class="food-price">₹99</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Brownie</div>
+          <div class="food-description">
+            A rich, fudgy Brownie made with premium chocolate, offering a dense,
+            moist texture and a perfectly sweet, chocolatey flavor. Served warm,
+            it’s a simple yet indulgent dessert that satisfies every chocolate
+            craving.
+          </div>
+          <div class="food-price">₹99</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <h2 class="section-title">Pan Pizza's - Veg</h2>
+      <div class="food-item-container">
+        <div class="food-item">
+          <div class="food-name">Pan Onion</div>
+          <div class="food-description">
+            Classic pizza topped with fresh onions.
+          </div>
+          <div class="food-price">₹79</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Pan Capsicum</div>
+          <div class="food-description">
+            Pizza topped with crunchy capsicum slices.
+          </div>
+          <div class="food-price">₹79</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Pan Tomato</div>
+          <div class="food-description">
+            Pizza topped with tomato and its slices.
+          </div>
+          <div class="food-price">₹79</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Pan Corn</div>
+          <div class="food-description">
+            Pizza topped with sweet golden corn.
+          </div>
+          <div class="food-price">₹89</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Pan Paneer</div>
+          <div class="food-description">
+            Pizza topped with chunks of soft paneer.
+          </div>
+          <div class="food-price">₹99</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <h2 class="section-title">Pizza Topping</h2>
+      <div class="food-item-container">
+        <div class="food-item">
+          <div class="food-name">Extra Cheese</div>
+          <div class="food-description">
+            Extra Cheese adds an indulgent layer of extra melted cheese to your
+            pizza, making each bite even more creamy and flavorful. Ideal for
+            those who can’t get enough of that cheesy goodness, it enhances the
+            pizza with a rich, melty texture and a satisfying, cheesy taste.
+          </div>
+          <div class="food-price">₹40 / ₹50 / ₹70</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Veg Toppings</div>
+          <div class="food-description">
+            Choose from black olives, onion, capsicum, paneer, mushroom, golden
+            corn, tomato, jalapeno, red paprika.
+          </div>
+          <div class="food-price">₹25 / ₹35 / ₹45</div>
+        </div>
+      </div>
     </div>
     <div class="menu-section">
-        <h2 class="section-title">Shakes</h2>
-        <div class="food-item-container">
-            <div class="food-item">
-                <div class="food-name">Strawberry Shake</div>
-                <div class="food-description">A sweet and creamy shake made with strawberries.</div>
-                <div class="food-price">₹110</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Butterscotch Shake</div>
-                <div class="food-description">A delightful blend of creamy butterscotch and milk.</div>
-                <div class="food-price">₹110</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Chocolate Shake</div>
-                <div class="food-description">Rich and indulgent chocolate shake, perfect for chocolate lovers.</div>
-                <div class="food-price">₹110</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Mango Shake</div>
-                <div class="food-description">A tropical delight made with fresh, ripe mangoes.</div>
-                <div class="food-price">₹110</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Vanilla Shake</div>
-                <div class="food-description">A classic shake with the rich and creamy taste of vanilla.</div>
-                <div class="food-price">₹110</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Oreo Shake</div>
-                <div class="food-description">A delicious shake blended with Oreo cookies.</div>
-                <div class="food-price">₹110</div>
-            </div>
-            <div class="food-item">
-                <div class="food-name">Kesar Mango Shake</div>
-                <div class="food-description">A royal blend of mangoes and saffron.</div>
-                <div class="food-price">₹110</div>
-            </div>
-            
-            <div class="food-item">
-                <div class="food-name">Pineapple Coconut Shake</div>
-                <div class="food-description">A refreshing tropical shake with pineapple and coconut.</div>
-                <div class="food-price">₹110</div>
-            </div>
-           
-    </div>
-    
-    
-    <div class="menu-section">
+      <h2 class="section-title">Shakes</h2>
+      <div class="food-item-container">
+        <div class="food-item">
+          <div class="food-name">Strawberry Shake</div>
+          <div class="food-description">
+            A sweet and creamy shake made with strawberries.
+          </div>
+          <div class="food-price">₹110</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Butterscotch Shake</div>
+          <div class="food-description">
+            A delightful blend of creamy butterscotch and milk.
+          </div>
+          <div class="food-price">₹110</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Chocolate Shake</div>
+          <div class="food-description">
+            Rich and indulgent chocolate shake, perfect for chocolate lovers.
+          </div>
+          <div class="food-price">₹110</div>
+        </div>
+       
+        <div class="food-item">
+          <div class="food-name">Vanilla Shake</div>
+          <div class="food-description">
+            A classic shake with the rich and creamy taste of vanilla.
+          </div>
+          <div class="food-price">₹110</div>
+        </div>
+        
+        <div class="food-item">
+          <div class="food-name">Kesar Mango Shake</div>
+          <div class="food-description">
+            A royal blend of mangoes and saffron.
+          </div>
+          <div class="food-price">₹110</div>
+        </div>
+
+      
+      </div>
+
+      <div class="menu-section">
         <h2 class="section-title">Brain Freezer</h2>
         <div class="food-item-container">
-            <div class="food-item">
-                <div class="food-name">Kesar Mango Masti</div>
-                <div class="food-description">A delightful mix of mango and saffron for a refreshing taste.</div>
-                <div class="food-price">₹99</div>
+          <div class="food-item">
+            <div class="food-name">Kesar Mango Masti</div>
+            <div class="food-description">
+              A delightful mix of mango and saffron for a refreshing taste.
             </div>
-            <div class="food-item">
-                <div class="food-name">Paan & Pine Apple Blast</div>
-                <div class="food-description">A fusion of paan and pineapple for a tropical blast.</div>
-                <div class="food-price">₹99</div>
+            <div class="food-price">₹99</div>
+          </div>
+          <div class="food-item">
+            <div class="food-name">Paan & Pine Apple Blast</div>
+            <div class="food-description">
+              A fusion of paan and pineapple for a tropical blast.
             </div>
-            <div class="food-item">
-                <div class="food-name">Bubblegum Blast</div>
-                <div class="food-description">Sweet and fun bubblegum flavor in a cool drink.</div>
-                <div class="food-price">₹99</div>
+            <div class="food-price">₹99</div>
+          </div>
+          <div class="food-item">
+            <div class="food-name">Bubblegum Blast</div>
+            <div class="food-description">
+              Sweet and fun bubblegum flavor in a cool drink.
             </div>
-            <div class="food-item">
-                <div class="food-name">Caribean Colada</div>
-                <div class="food-description">A tropical blend of coconut and pineapple.</div>
-                <div class="food-price">₹99</div>
+            <div class="food-price">₹99</div>
+          </div>
+          <div class="food-item">
+            <div class="food-name">Caribean Colada</div>
+            <div class="food-description">
+              A tropical blend of coconut and pineapple.
             </div>
-            <div class="food-item">
-                <div class="food-name">Orange Paan Masti</div>
-                <div class="food-description">A refreshing mix of orange and paan flavors.</div>
-                <div class="food-price">₹99</div>
+            <div class="food-price">₹99</div>
+          </div>
+          <div class="food-item">
+            <div class="food-name">Orange Paan Masti</div>
+            <div class="food-description">
+              A refreshing mix of orange and paan flavors.
             </div>
+            <div class="food-price">₹99</div>
+          </div>
         </div>
-    </div>
-    
-    <div class="menu-section">
+      </div>
+
+      <div class="menu-section">
         <h2 class="section-title">Iced Tea</h2>
         <div class="food-item-container">
-            <div class="food-item">
-                <div class="food-name">Ice Tea Peach</div>
-                <div class="food-description">Refreshing iced tea with a hint of peach flavor.</div>
-                <div class="food-price">₹80</div>
+          <div class="food-item">
+            <div class="food-name">Ice Tea Peach</div>
+            <div class="food-description">
+              Refreshing iced tea with a hint of peach flavor.
             </div>
-            <div class="food-item">
-                <div class="food-name">Ice Tea Lemon</div>
-                <div class="food-description">Crisp and cool iced tea with a zesty lemon twist.</div>
-                <div class="food-price">₹80</div>
+            <div class="food-price">₹80</div>
+          </div>
+          <div class="food-item">
+            <div class="food-name">Ice Tea Lemon</div>
+            <div class="food-description">
+              Crisp and cool iced tea with a zesty lemon twist.
             </div>
+            <div class="food-price">₹80</div>
+          </div>
         </div>
-    </div>
-    
-    <div class="menu-section">
+      </div>
+
+      <div class="menu-section">
         <h2 class="section-title">Cold Coffee</h2>
         <div class="food-item-container">
-            <div class="food-item">
-                <div class="food-name">Classic Cold Coffee</div>
-                <div class="food-description">A refreshing blend of coffee and milk served chilled over ice.</div>
-                <div class="food-price">₹99</div>
+          <div class="food-item">
+            <div class="food-name">Classic Cold Coffee</div>
+            <div class="food-description">
+              A refreshing blend of coffee and milk served chilled over ice.
             </div>
-            <div class="food-item">
-                <div class="food-name">Hazelnut Cold Coffee</div>
-                <div class="food-description">Chilled coffee with a rich hazelnut flavor.</div>
-                <div class="food-price">₹110</div>
+            <div class="food-price">₹99</div>
+          </div>
+          <div class="food-item">
+            <div class="food-name">Hazelnut Cold Coffee</div>
+            <div class="food-description">
+              Chilled coffee with a rich hazelnut flavor.
             </div>
-            <div class="food-item">
-                <div class="food-name">Irish Cold Coffee</div>
-                <div class="food-description">Creamy and smooth cold coffee with a hint of Irish flavor.</div>
-                <div class="food-price">₹110</div>
+            <div class="food-price">₹110</div>
+          </div>
+          <div class="food-item">
+            <div class="food-name">Irish Cold Coffee</div>
+            <div class="food-description">
+              Creamy and smooth cold coffee with a hint of Irish flavor.
             </div>
-            <div class="food-item">
-                <div class="food-name">Caramel Cold Coffee</div>
-                <div class="food-description">Cold coffee blended with rich caramel syrup for a sweet treat.</div>
-                <div class="food-price">₹110</div>
+            <div class="food-price">₹110</div>
+          </div>
+          <div class="food-item">
+            <div class="food-name">Caramel Cold Coffee</div>
+            <div class="food-description">
+              Cold coffee blended with rich caramel syrup for a sweet treat.
             </div>
-            <div class="food-item">
-                <div class="food-name">Chocolate Coffee Fappe</div>
-                <div class="food-description">Indulgent cold coffee blended with chocolate for a deliciously rich flavor.</div>
-                <div class="food-price">₹110</div>
+            <div class="food-price">₹110</div>
+          </div>
+          <div class="food-item">
+            <div class="food-name">Chocolate Coffee Fappe</div>
+            <div class="food-description">
+              Indulgent cold coffee blended with chocolate for a deliciously
+              rich flavor.
             </div>
+            <div class="food-price">₹110</div>
+          </div>
         </div>
+      </div>
     </div>
-    
-
-    
+  </body>
+</html>
