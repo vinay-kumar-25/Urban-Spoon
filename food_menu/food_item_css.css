@@ -1,0 +1,115 @@
+:root{
+    
+    --body_color:#757575;
+    --body_background:#ffffff;
+    --green:#719a0a;
+    --orange:#fbaf32;
+    --green-light: #C9E7A4; /* Even Softer Green for Backgrounds */
+    --orange-light: #FFDBA4; /* Softer Orange for Accents */
+    --footer_color:#454545;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family:"Nunito";
+    box-sizing: border-box;
+}
+
+body { 
+  background-color:var(--body_background);
+  position: relative;
+}
+
+
+
+.menu-section {
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 8px;
+}
+
+.section-title {
+  font-size: 2.2em;
+  text-align: center;
+  color: var(--green);
+  margin-bottom: 1rem;
+ 
+}
+
+.food-item-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem , 15rem));
+  gap: 20px;
+  justify-content: center;
+}
+
+.food-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+border-radius: 1rem;
+background-color:var(--body_background);
+  transition: all 0.3s ease-in-out;
+  border: 1px solid rgb(220, 220, 220);
+}
+
+.food-item:hover {
+    transform: translateY(-5px) rotateZ(1deg);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: var(--orange-light);
+    .food-name,.food-description,.food-price{
+    color: var(--green);}
+    .photo img {
+    }
+}
+
+.food-name,.food-description,.food-price{
+  padding:0 1rem;
+  color: var(--orange);
+  transition: all 0.3s ease-in-out;
+
+}
+.photo {
+  height: 12rem;
+  margin-top: 10px;
+  /* border-radius: 1rem 1rem 5px 50px ; */
+  border-radius: 20%;
+  border: 2px solid var(--green);
+  overflow: hidden;
+}
+.photo img{
+    transition: all 0.3s ease-in-out;
+    height: 100%;
+    width: 100%;
+}
+
+.food-name {
+  font-size: 1.3em;
+  font-weight: bold;
+  
+}
+
+.food-description {
+  font-size: 0.95em;
+}
+
+.food-price {
+  font-size: 1.1em;
+  font-weight: bold;
+  padding:  1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .menu-section {
+    width: 90%;
+  }
+  .food-item {
+    grid-column: span 1;
+  }
+}

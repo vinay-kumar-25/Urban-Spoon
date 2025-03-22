@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 90%;
+            max-width: 400px;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+        }
+        .cart-item .details {
+            flex: 1;
+            margin-left: 1rem;
+        }
+        .cart-item input {
+            width: 3rem;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 0.3rem;
+        }
+        .price {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .total-section {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #28a745;
+        }
+        .checkout-btn {
+            width: 100%;
+            padding: 1rem;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Cart</h2>
+        <div class="cart-item">
+            <img src="https://via.placeholder.com/50" alt="Burger">
+            <div class="details">
+                <p>Burger</p>
+                <span class="price">₹50</span>
+            </div>
+            <input type="number" value="1" min="0">
+        </div>
+        <div class="cart-item">
+            <img src="https://via.placeholder.com/50" alt="Fries">
+            <div class="details">
+                <p>Fries</p>
+                <span class="price">₹30</span>
+            </div>
+            <input type="number" value="1" min="0">
+        </div>
+        <div class="cart-item">
+            <img src="https://via.placeholder.com/50" alt="Pizza">
+            <div class="details">
+                <p>Pizza</p>
+                <span class="price">₹100</span>
+            </div>
+            <input type="number" value="1" min="0">
+        </div>
+        <div class="total-section">Total: ₹180</div>
+        <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+</body>
+</html>

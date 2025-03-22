@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Order System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eafaea;
+            color: #064635;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 40rem;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #c7f9cc;
+            border-radius: 1rem;
+            box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #64a964;
+        }
+        input {
+            width: 3rem;
+            padding: 0.5rem;
+            font-size: 1rem;
+            text-align: center;
+            border: 1px solid #064635;
+            border-radius: 0.5rem;
+        }
+        button {
+            margin-top: 1rem;
+            padding: 1rem;
+            font-size: 1.2rem;
+            background: #2a9134;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #1b6b26;
+        }
+        #total {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Order Your Food</h1>
+    <div class="menu">
+        <div class="menu-item">
+            <span>Pizza - ₹200</span>
+            <input type="number" value="0" min="0" class="qty" data-price="200">
+        </div>
+        <div class="menu-item">
+            <span>Burger - ₹100</span>
+            <input type="number" value="0" min="0" class="qty" data-price="100">
+        </div>
+        <div class="menu-item">
+            <span>Pasta - ₹150</span>
+            <input type="number" value="0" min="0" class="qty" data-price="150">
+        </div>
+        <div class="menu-item">
+            <span>Cold Drink - ₹50</span>
+            <input type="number" value="0" min="0" class="qty" data-price="50">
+        </div>
+    </div>
+    <button onclick="calculateTotal()">Calculate Total</button>
+    <div id="total">Total: ₹0</div>
+</div>
+
+<script>
+    function calculateTotal() {
+        let total = 0;
+        document.querySelectorAll('.qty').forEach(item => {
+            total += item.value * item.getAttribute('data-price');
+        });
+        document.getElementById('total').innerText = "Total: ₹" + total;
+    }
+</script>
+
+</body>
+</html>

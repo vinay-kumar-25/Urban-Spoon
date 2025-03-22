@@ -4,109 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Food Menu</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Bungee+Tint&family=Coustard:wght@400;900&family=Fira+Code:wght@300..700&family=Lobster&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-     body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    background: url(back.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-  }
+    <link rel="stylesheet" href="food_item_css.css">
   
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0 , 0); /* Adjust transparency */
-    z-index: -1;
-  }
-      .menu-section {
-  padding: 10px;
- /* background: linear-gradient(rgb(250, 250, 185),rgb(148, 230, 148)); /* Light green background for sections */
-  margin: 10px 200px;
-  border-radius: 10px;
-
-}
-
-.photo {
-  height: 10rem;
-  width: 10rem;
-  border-radius: 30px;
-  max-width: 100%;
-}
-
-.section-title {
-  font-family: Lobster;
-  font-size: 2em;
-  /* font-weight: bold; */
-  letter-spacing: 4px;
-  margin-bottom: 10px;
-  color: rgb(15, 119, 15); /* Darker text color for titles */
-  text-align:center;
-}
-
-.food-item-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  justify-content: center;
-
-}
-
-.food-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 10px;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  background-color: white;
-  position: relative;
-}
-
-.food-name {
-  font-size: 1.2em;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.food-description {
-  color: #666; /* Slightly lighter text for descriptions */
-  margin-bottom: 10px;
-}
-
-.food-price {
-  color: #008000; /* Green price */
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        .food-item {
-          grid-column: span 1; /* Each item takes full width on smaller screens */
-        }
-      }
-    </style>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Bungee+Tint&family=Coustard:wght@400;900&family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lobster&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+    rel="stylesheet"
+  />
+   
   </head>
-  <body>
+  <body> 
+    
     <div class="menu-section">
       <h2 class="section-title">Simple Veg Pizza</h2>
       <div class="food-item-container">
         <div class="food-item">
-          <img src="margerita.webp" alt="" class="photo" />
+         <div class="photo"><img src="margerita.webp" alt="" /></div>
           <div class="food-name">Margherita</div>
           <div class="food-description">
             Margherita pizza is a classic Italian pizza known for its
@@ -115,7 +27,7 @@
           <div class="food-price">₹99 / ₹199 / ₹309</div>
         </div>
         <div class="food-item">
-          <img src="corncheeze.webp" alt="" class="photo" />
+          <div class="photo"><img src="corncheeze.webp" alt="" /></div>
           <div class="food-name">Corn Cheese Pizza</div>
           <div class="food-description">
             Corn cheese pizza is a delicious variation...
@@ -123,7 +35,7 @@
           <div class="food-price">₹109 / ₹209 / ₹309</div>
         </div>
         <div class="food-item">
-          <img src="greenveg.webp" alt="" class="photo" />
+          <div class="photo"><img src="greenveg.webp" alt="" /></div>
           <div class="food-name">Green Veg</div>
           <div class="food-description">
             A fresh and healthy pizza topped with green vegetables like onion,
@@ -139,7 +51,7 @@
       <h2 class="section-title">Special Veg Pizza</h2>
       <div class="food-item-container">
         <div class="food-item">
-          <img src="farmhouse.webp" alt="" class="photo" />
+          <div class="photo"><img src="farmhouse.webp" alt="" /></div>
           <div class="food-name">Farm House</div>
           <div class="food-description">
             A farmhouse pizza loaded with fresh vegetables, tomatoes, and tasty
@@ -148,7 +60,7 @@
           <div class="food-price">₹179 / ₹329 / ₹469</div>
         </div>
         <div class="food-item">
-          <img src="countryspecial.webp" alt="" class="photo" />
+          <div class="photo"><img src="countryspecial.webp" alt="" /></div>
 
           <div class="food-name">Country Special</div>
           <div class="food-description">
@@ -158,7 +70,7 @@
           <div class="food-price">₹179 / ₹329 / ₹469</div>
         </div>
         <div class="food-item">
-          <img src="paneer.webp" alt="" class="photo" />
+          <div class="photo"><img src="paneer.webp" alt="" /></div>
           <div class="food-name">Paneer Pizza</div>
           <div class="food-description">
             A fusion of spicy peri peri paneer, crunchy capsicum, and
@@ -168,7 +80,7 @@
         </div>
        
         <div class="food-item">
-          <img src="doublecheeze.webp" alt="" class="photo" />
+          <div class="photo"><img src="doublecheeze.webp" alt="" /></div>
           <div class="food-name">Double Cheese</div>
           <div class="food-description">
             A cheesy delight with an extra layer of mozzarella and another
@@ -183,7 +95,7 @@
       <h2 class="section-title">Veg Different Sauces</h2>
       <div class="food-item-container">
         <div class="food-item">
-          <img src="schezwan.webp" alt="" class="photo" />
+          <div class="photo"><img src="schezwan.webp" alt="" /></div>
           <div class="food-name">Schezwan Pizza</div>
           <div class="food-description">
             Spice things up with this fiery pizza, featuring a bold Schezwan
@@ -193,7 +105,7 @@
           <div class="food-price">₹209 / ₹369 / ₹499</div>
         </div>
         <div class="food-item">
-          <img src="mexicansalsa.webp" alt="" class="photo" />
+          <div class="photo"><img src="mexicansalsa.webp" alt="" /></div>
           <div class="food-name">Mexican Salsa Pizza</div>
           <div class="food-description">
             A zesty Mexican salsa sauce forms the perfect base, topped with
@@ -203,7 +115,7 @@
           <div class="food-price">₹209 / ₹369 / ₹499</div>
         </div>
         <div class="food-item">
-          <img src="makani.webp" alt="" class="photo" />
+          <div class="photo"><img src="makani.webp" alt="" /></div>
           <div class="food-name">Makhani Pizza</div>
           <div class="food-description">
             A fusion of flavors with a luscious makhani sauce base, topped with
@@ -213,7 +125,7 @@
           <div class="food-price">₹209 / ₹369 / ₹499</div>
         </div>
         <div class="food-item">
-          <img src="tandoori.webp" alt="" class="photo" />
+          <div class="photo"><img src="tandoori.webp" alt="" /></div>
           <div class="food-name">Tandoori Pizza</div>
           <div class="food-description">
             Savor the smoky goodness of tandoori sauce, paired with sweet golden
@@ -223,7 +135,7 @@
           <div class="food-price">₹209 / ₹369 / ₹499</div>
         </div>
         <div class="food-item">
-          <img src="achari.webp" alt="" class="photo" />
+          <div class="photo"><img src="achari.webp" alt="" /></div>
           <div class="food-name">Achari Pizza</div>
           <div class="food-description">
             A bold burst of flavors with a tangy pickle sauce base, spicy
@@ -612,34 +524,39 @@
         <h2 class="section-title">Cold Coffee</h2>
         <div class="food-item-container">
           <div class="food-item">
-            <div class="food-name">Classic Cold Coffee</div>
+            <img <div class="photo"></di"classic cold coffee.jpg" alt="" />
+            <div classv>src=="food-name">Classic Cold Coffee</div>
             <div class="food-description">
               A refreshing blend of coffee and milk served chilled over ice.
             </div>
             <div class="food-price">₹99</div>
           </div>
           <div class="food-item">
-            <div class="food-name">Hazelnut Cold Coffee</div>
+            <img src="hazelnut-<div class="photo"></di-coffee-1.jpg" alt="" />
+            <div class="v>icedfood-name">Hazelnut Cold Coffee</div>
             <div class="food-description">
               Chilled coffee with a rich hazelnut flavor.
             </div>
             <div class="food-price">₹110</div>
           </div>
           <div class="food-item">
-            <div class="food-name">Irish Cold Coffee</div>
+            <img src="<div class="photo"></dih-Cream-scaled.jpg" alt="" />
+            <div classv>Iris="food-name">Irish Cold Coffee</div>
             <div class="food-description">
               Creamy and smooth cold coffee with a hint of Irish flavor.
             </div>
             <div class="food-price">₹110</div>
           </div>
           <div class="food-item">
-            <div class="food-name">Caramel Cold Coffee</div>
+            <img src="caramel-cold-foam-cold-brew-<div class="photo"></diee-recipe-scaled.jpg" alt="" />
+            <div classv>coff="food-name">Caramel Cold Coffee</div>
             <div class="food-description">
               Cold coffee blended with rich caramel syrup for a sweet treat.
             </div>
             <div class="food-price">₹110</div>
           </div>
           <div class="food-item">
+            <div class="photo"><img src="Chocolate_Caramel_Frappe.webp" alt="" /></div>
             <div class="food-name">Chocolate Coffee Frappe</div>
             <div class="food-description">
               Indulgent cold coffee blended with chocolate for a deliciously rich flavor.

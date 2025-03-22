@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Attendance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, green, yellow);
+            color: white;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin: 20px auto;
+            color: black;
+        }
+        .staff-section {
+            margin-top: 20px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 5px;
+        }
+        .staff-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .present { background: green; color: white; }
+        .absent { background: red; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Staff Attendance</h2>
+        <div id="staff-sections"></div>
+        <button onclick="saveAttendance()" style="margin-top:10px; padding:10px; background:#28a745; color:white;">Save Attendance</button>
+    </div>
+
+    <script>
+        let staffCategories = {
+            "Working Staff": ["John Doe", "Alice Smith", "Michael Lee", "Sarah Connor", "David Wilson"],
+            "Chefs": ["Robert Brown", "Emily Davis", "James Anderson", "Sophia White", "Daniel Martinez"],
+            "Helping Staff": ["Emma Johnson", "Olivia Taylor", "Noah Harris", "Liam Walker", "Ava Scott"],
+            "Security Guards": ["William King", "Ethan Carter", "Benjamin Young", "Lucas Hall", "Henry Allen"],
+            "Cleaning Staff": ["Charlotte Moore", "Amelia Thomas", "Mason Turner", "Ella Adams", "Jack Lewis"]
+        };
+        let attendance = JSON.parse(localStorage.getItem('attendance')) || {};
+
+        function loadStaff() {
+            let staffSections = document.getElementById("staff-sections");
+            staffSections.innerHTML = "";
+
+            for (let category in staffCategories) {
+                let section = document.createElement("div");
+                section.className = "staff-section";
+                section.innerHTML = `<h3>${category}</h3>`;
+
+                staffCategories[category].forEach(name => {
+                    let status = attendance[name] || "Absent";
+                    let colorClass = status === "Present" ? "present" : "absent";
+                    section.innerHTML += `
+                        <div class="staff-item">
+                            <span>${name}</span>
+                            <button class="${colorClass}" onclick="markAttendance('${name}')">${status}</button>
+                        </div>
+                    `;
+                });
+                staffSections.appendChild(section);
+            }
+        }
+
+        function markAttendance(name) {
+            attendance[name] = attendance[name] === "Present" ? "Absent" : "Present";
+            loadStaff();
+        }
+
+        function saveAttendance() {
+            localStorage.setItem("attendance", JSON.stringify(attendance));
+            alert("Attendance saved successfully!");
+        }
+
+        window.onload = loadStaff;
+    </script>
+</body>
+</html>
