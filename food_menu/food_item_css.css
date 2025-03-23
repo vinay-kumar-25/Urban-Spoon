@@ -40,9 +40,10 @@ body img{
   top: 2rem;
   right: 2rem;
   z-index: 1;
+  padding: 9px;
 
-  background-color: var(--orange);
-  color: white;
+ background-color:  rgb(156, 210, 189);
+  color: rgb(12, 79, 52);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,12 +55,12 @@ body img{
 }
 @keyframes rotate {
   from{transform: rotateZ(0deg);}
-  to{transform: rotateZ(360deg);}
+  to{transform: rotateZ(-360deg);}
   
 }
 
 .music_button.playing {
-  background-color:var(--green); /* Red when playing */
+  color: rgb(255, 98, 55);
 }
 
 
