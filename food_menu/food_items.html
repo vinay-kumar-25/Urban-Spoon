@@ -10,10 +10,21 @@
     href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Bungee+Tint&family=Coustard:wght@400;900&family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lobster&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
     rel="stylesheet"
   />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
    
   </head>
   <body> 
-    
+    <div class="music_button" onclick="toggleMusic()">
+    <i class="fa-solid fa-music"></i>
+</div>
+
+<!-- Audio File -->
+<audio id="myAudio">
+    <source src="tokyo-music-walker-way-home.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+    </div>
     <div class="menu-section">
       <h2 class="section-title">Simple Veg Pizza</h2>
       <div class="food-item-container">
@@ -152,6 +163,7 @@
       <h2 class="section-title">Veg Special</h2>
       <div class="food-item-container">
         <div class="food-item">
+          <div class="photo"><img src="tandoori.webp" alt="" /></div>
           <div class="food-name">Deluxe Veggie</div>
           <div class="food-description">
             This pizza is a colorful medley of fresh flavors, topped with
@@ -161,6 +173,7 @@
           <div class="food-price">₹249 / ₹429 / ₹579</div>
         </div>
         <div class="food-item">
+          <div class="photo"><img src="tandoori.webp" alt="" /></div>
           <div class="food-name">Veg Loaded</div>
           <div class="food-description">
             This pizza brings a delightful combination of tangy tomatoes, spicy
@@ -169,6 +182,7 @@
           <div class="food-price">₹249 / ₹429 / ₹579</div>
         </div>
         <div class="food-item">
+          <div class="photo"><img src="tandoori.webp" alt="" /></div>
           <div class="food-name">Veg Supreme</div>
           <div class="food-description">
             Topped with crisp onions, sweet capsicum, earthy mushrooms, juicy
@@ -184,6 +198,7 @@
       <h2 class="section-title">Starters</h2>
       <div class="food-item-container">
         <div class="food-item">
+          <div class="photo"><img src="chese.webp" alt="" /></div>
           <div class="food-name">Spicy Cheese Pockets</div>
           <div class="food-description">
             The Spicy Cheese Pocket is available in Veg and Chicken options. The
@@ -195,6 +210,7 @@
           <div class="food-price">₹95 / ₹105</div>
         </div>
         <div class="food-item">
+          <div class="photo"><img src="garlic.webp" alt="" /></div>
           <div class="food-name">Garlic Bread</div>
           <div class="food-description">
             Garlic bread is the ultimate savory treat, with a golden, crispy
@@ -206,6 +222,7 @@
           <div class="food-price">₹70</div>
         </div>
         <div class="food-item">
+          <div class="photo"><img src="garlic.webp" alt="" /></div>
           <div class="food-name">Stuffed Garlic Bread</div>
           <div class="food-description">
             A crispy, buttery garlic bread filled with a rich blend of cheese
@@ -217,6 +234,7 @@
           <div class="food-price">₹110 / ₹150</div>
         </div>
         <div class="food-item">
+          <div class="photo"><img src="chip.webp" alt="" /></div>
           <div class="food-name">Cheese Bites</div>
           <div class="food-description">
             Crispy cheese bites filled with creamy cheese sauce and savory
@@ -232,6 +250,7 @@
       <h2 class="section-title">Burger</h2>
       <div class="food-item-container">
         <div class="food-item">
+          <div class="photo"><img src="bug1.webp" alt="" /></div>
           <div class="food-name">Veg Burger</div>
           <div class="food-description">
             A delicious burger filled with fresh onions, tomatoes, and a crispy
@@ -242,6 +261,8 @@
           <div class="food-price">₹59 / ₹79</div>
         </div>
         <div class="food-item">
+          <div class="photo"><img src="bug2.webp" alt="" /></div>
+
           <div class="food-name">Spicy Veg Burger</div>
           <div class="food-description">
             A delicious burger filled with fresh onions, tomatoes, and a crispy
@@ -253,6 +274,7 @@
         </div>
 
         <div class="food-item">
+          <div class="photo"><img src="bug3.webp" alt="" /></div>
           <div class="food-name">Veg Double Patty Burger</div>
           <div class="food-description">
             A delicious burger stacked with two crispy potato patties, fresh
@@ -263,6 +285,7 @@
           <div class="food-price">₹89 / ₹109</div>
         </div>
         <div class="food-item">
+          <div class="photo"><img src="bug4.webp" alt="" /></div>
           <div class="food-name">Basil Veg Burger</div>
           <div class="food-description">
             A delicious burger filled with fresh onions, tomatoes, and a crispy
@@ -279,6 +302,7 @@
       <h2 class="section-title">Pasta</h2>
       <div class="food-item-container">
         <div class="food-item">
+          <div class="photo"><img src="p1.webp" alt="" /></div>
           <div class="food-name">White Pasta (Veg)</div>
           <div class="food-description">
             Creamy cheese sauce wraps around perfectly cooked pasta, filled with
@@ -290,6 +314,7 @@
         </div>
 
         <div class="food-item">
+          <div class="photo"><img src="p2.webp" alt="" /></div>
           <div class="food-name">Red Pasta (Veg)</div>
           <div class="food-description">
             Creamy cheese and tomato based sauce wraps around perfectly cooked
@@ -301,6 +326,7 @@
         </div>
 
         <div class="food-item">
+          <div class="photo"><img src="p3.webp" alt="" /></div>
           <div class="food-name">Mix Sauce Pasta (Veg)</div>
           <div class="food-description">
             Creamy mix sauce wraps around perfectly cooked pasta, filled with
@@ -312,6 +338,7 @@
         </div>
 
         <div class="food-item">
+          <div class="photo"><img src="p4.webp" alt="" /></div>
           <div class="food-name">Basil Pesto Pasta (Veg)</div>
           <div class="food-description">
             A fragrant basil sauce coats perfectly cooked pasta, filled with
@@ -328,6 +355,7 @@
       <h2 class="section-title">Desserts</h2>
       <div class="food-item-container">
         <div class="food-item">
+          <div class="photo"><img src="d1.webp" alt="" /></div>
           <div class="food-name">Chocolava</div>
           <div class="food-description">
             Chocolava Cake is a rich, indulgent dessert with a warm, molten
@@ -339,6 +367,7 @@
           <div class="food-price">₹99</div>
         </div>
         <div class="food-item">
+          <div class="photo"><img src="d2.webp" alt="" /></div>
           <div class="food-name">Brownie</div>
           <div class="food-description">
             A rich, fudgy Brownie made with premium chocolate, offering a dense,
@@ -355,6 +384,7 @@
       <h2 class="section-title">Pan Pizza's - Veg</h2>
       <div class="food-item-container">
         <div class="food-item">
+          <div class="photo"><img src="pp1.webp" alt="" /></div>
           <div class="food-name">Pan Onion</div>
           <div class="food-description">
             Classic pizza topped with fresh onions.
@@ -362,6 +392,7 @@
           <div class="food-price">₹79</div>
         </div>
         <div class="food-item">
+          <div class="photo"><img src="pp1.webp" alt="" /></div>
           <div class="food-name">Pan Capsicum</div>
           <div class="food-description">
             Pizza topped with crunchy capsicum slices.
@@ -369,6 +400,7 @@
           <div class="food-price">₹79</div>
         </div>
         <div class="food-item">
+          <div class="photo"><img src="pp1.webp" alt="" /></div>
           <div class="food-name">Pan Tomato</div>
           <div class="food-description">
             Pizza topped with tomato and its slices.
@@ -376,6 +408,7 @@
           <div class="food-price">₹79</div>
         </div>
         <div class="food-item">
+          <div class="photo"><img src="pp1.webp" alt="" /></div>
           <div class="food-name">Pan Corn</div>
           <div class="food-description">
             Pizza topped with sweet golden corn.
@@ -383,6 +416,7 @@
           <div class="food-price">₹89</div>
         </div>
         <div class="food-item">
+          <div class="photo"><img src="pp1.webp" alt="" /></div>
           <div class="food-name">Pan Paneer</div>
           <div class="food-description">
             Pizza topped with chunks of soft paneer.
@@ -396,6 +430,7 @@
       <h2 class="section-title">Pizza Topping</h2>
       <div class="food-item-container">
         <div class="food-item">
+          <div class="photo"><img src="t1.webp" alt="" /></div>
           <div class="food-name">Extra Cheese</div>
           <div class="food-description">
             Extra Cheese adds an indulgent layer of extra melted cheese to your
@@ -406,6 +441,7 @@
           <div class="food-price">₹40 / ₹50 / ₹70</div>
         </div>
         <div class="food-item">
+          <div class="photo"><img src="t2.webp" alt="" /></div>
           <div class="food-name">Veg Toppings</div>
           <div class="food-description">
             Choose from black olives, onion, capsicum, paneer, mushroom, golden
@@ -419,6 +455,7 @@
       <h2 class="section-title">Shakes</h2>
       <div class="food-item-container">
         <div class="food-item">
+          <div class="photo"><img src="s1.webp" alt="" /></div>
           <div class="food-name">Strawberry Shake</div>
           <div class="food-description">
             A sweet and creamy shake made with strawberries.
@@ -426,6 +463,7 @@
           <div class="food-price">₹110</div>
         </div>
         <div class="food-item">
+          <div class="photo"><img src="s2.webp" alt="" /></div>
           <div class="food-name">Butterscotch Shake</div>
           <div class="food-description">
             A delightful blend of creamy butterscotch and milk.
@@ -433,6 +471,7 @@
           <div class="food-price">₹110</div>
         </div>
         <div class="food-item">
+          <div class="photo"><img src="s3.webp" alt="" /></div>
           <div class="food-name">Chocolate Shake</div>
           <div class="food-description">
             Rich and indulgent chocolate shake, perfect for chocolate lovers.
@@ -442,6 +481,7 @@
        
         <div class="food-item">
           <div class="food-name">Vanilla Shake</div>
+          <div class="photo"><img src="s4.webp" alt="" /></div>
           <div class="food-description">
             A classic shake with the rich and creamy taste of vanilla.
           </div>
@@ -449,6 +489,7 @@
         </div>
         
         <div class="food-item">
+          <div class="photo"><img src="s5.webp" alt="" /></div>
           <div class="food-name">Kesar Mango Shake</div>
           <div class="food-description">
             A royal blend of mangoes and saffron.
@@ -463,6 +504,7 @@
         <h2 class="section-title">Brain Freezer</h2>
         <div class="food-item-container">
           <div class="food-item">
+            <div class="photo"><img src="b1.webp" alt="" /></div>
             <div class="food-name">Kesar Mango Masti</div>
             <div class="food-description">
               A delightful mix of mango and saffron for a refreshing taste.
@@ -470,6 +512,7 @@
             <div class="food-price">₹99</div>
           </div>
           <div class="food-item">
+            <div class="photo"><img src="b2.webp" alt="" /></div>
             <div class="food-name">Paan & Pine Apple Blast</div>
             <div class="food-description">
               A fusion of paan and pineapple for a tropical blast.
@@ -477,6 +520,7 @@
             <div class="food-price">₹99</div>
           </div>
           <div class="food-item">
+            <div class="photo"><img src="b3.webp" alt="" /></div>
             <div class="food-name">Bubblegum Blast</div>
             <div class="food-description">
               Sweet and fun bubblegum flavor in a cool drink.
@@ -484,6 +528,7 @@
             <div class="food-price">₹99</div>
           </div>
           <div class="food-item">
+            <div class="photo"><img src="b4.webp" alt="" /></div>
             <div class="food-name">Caribean Colada</div>
             <div class="food-description">
               A tropical blend of coconut and pineapple.
@@ -491,6 +536,7 @@
             <div class="food-price">₹99</div>
           </div>
           <div class="food-item">
+            <div class="photo"><img src="b5.webp" alt="" /></div>
             <div class="food-name">Orange Paan Masti</div>
             <div class="food-description">
               A refreshing mix of orange and paan flavors.
@@ -504,6 +550,7 @@
         <h2 class="section-title">Iced Tea</h2>
         <div class="food-item-container">
           <div class="food-item">
+            <div class="photo"><img src="i3.webp" alt="iamge" /></div>
             <div class="food-name">Ice Tea Peach</div>
             <div class="food-description">
               Refreshing iced tea with a hint of peach flavor.
@@ -511,6 +558,7 @@
             <div class="food-price">₹80</div>
           </div>
           <div class="food-item">
+            <div class="photo"><img src="i2.webp" alt="image" /></div>
             <div class="food-name">Ice Tea Lemon</div>
             <div class="food-description">
               Crisp and cool iced tea with a zesty lemon twist.
@@ -524,39 +572,39 @@
         <h2 class="section-title">Cold Coffee</h2>
         <div class="food-item-container">
           <div class="food-item">
-            <img <div class="photo"></di"classic cold coffee.jpg" alt="" />
-            <div classv>src=="food-name">Classic Cold Coffee</div>
+            <div class="photo"><img src="cc1.webp" alt="" /></div>
+            <div class="food-name">Classic Cold Coffee</div>
             <div class="food-description">
               A refreshing blend of coffee and milk served chilled over ice.
             </div>
             <div class="food-price">₹99</div>
           </div>
           <div class="food-item">
-            <img src="hazelnut-<div class="photo"></di-coffee-1.jpg" alt="" />
-            <div class="v>icedfood-name">Hazelnut Cold Coffee</div>
+            <div class="photo"><img src="cc2.webp" alt="" /></div>
+            <div class="food-name">Hazelnut Cold Coffee</div>
             <div class="food-description">
               Chilled coffee with a rich hazelnut flavor.
             </div>
             <div class="food-price">₹110</div>
           </div>
           <div class="food-item">
-            <img src="<div class="photo"></dih-Cream-scaled.jpg" alt="" />
-            <div classv>Iris="food-name">Irish Cold Coffee</div>
+            <div class="photo"><img src="cc4.webp" alt="" /></div>
+            <div class="food-name">Irish Cold Coffee</div>
             <div class="food-description">
               Creamy and smooth cold coffee with a hint of Irish flavor.
             </div>
             <div class="food-price">₹110</div>
           </div>
           <div class="food-item">
-            <img src="caramel-cold-foam-cold-brew-<div class="photo"></diee-recipe-scaled.jpg" alt="" />
-            <div classv>coff="food-name">Caramel Cold Coffee</div>
+            <div class="photo"><img src="cc3.webp" alt="" /></div>
+            <div class="food-name">Caramel Cold Coffee</div>
             <div class="food-description">
               Cold coffee blended with rich caramel syrup for a sweet treat.
             </div>
             <div class="food-price">₹110</div>
           </div>
           <div class="food-item">
-            <div class="photo"><img src="Chocolate_Caramel_Frappe.webp" alt="" /></div>
+            <div class="photo"><img src="cc4.webp" alt="" /></div>
             <div class="food-name">Chocolate Coffee Frappe</div>
             <div class="food-description">
               Indulgent cold coffee blended with chocolate for a deliciously rich flavor.
@@ -566,5 +614,28 @@
         </div>
       </div>
     </div>
-  </body>
+
+
+        
+        
+        <script>
+          let audio = document.getElementById("myAudio");
+          let button = document.querySelector(".music_button");
+          
+          function toggleMusic() {
+            if (audio.paused) {
+              audio.play();
+              button.classList.add("playing");
+            } else {
+              audio.pause();
+              button.classList.remove("playing");
+            }
+          }
+          </script>
+          
+          
+          
+          
+          </body>
+
 </html>

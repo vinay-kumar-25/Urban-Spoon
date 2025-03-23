@@ -17,23 +17,51 @@
 }
 
 body { 
+  height: 100vh;
+  width: 100vw;
   background-color:var(--body_background);
   position: relative;
+  background-image: url("green-back.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  overflow: auto;
+  background-attachment: fixed;
+  
+
+}
+body img{
+  height: 100%;
+  width: 100%;
+}
+.music_button {
+  width: 60px;
+  height: 60px;
+  background-color: #ff6600;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-
+.music_button.playing {
+  background-color: #ff3333; /* Red when playing */
+}
 
 .menu-section {
   padding: 20px;
   margin: 20px auto;
-  width: 80%;
+  width: 90%;
   border-radius: 8px;
 }
 
 .section-title {
   font-size: 2.2em;
   text-align: center;
-  color: var(--green);
+  color: rgb(214, 207, 130);
   margin-bottom: 1rem;
  
 }
@@ -41,7 +69,7 @@ body {
 .food-item-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem , 15rem));
-  gap: 20px;
+  gap: 2rem;
   justify-content: center;
 }
 
@@ -51,39 +79,45 @@ body {
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  gap: 10px;
+  gap: .8rem;
+  padding: 1rem;
 border-radius: 1rem;
-background-color:var(--body_background);
-  transition: all 0.3s ease-in-out;
-  border: 1px solid rgb(220, 220, 220);
+background-color: rgba(255, 255, 255, 0.12);
+backdrop-filter:blur(3px);
+  transition: all 0.15s ease-in-out;
+  border: 2px solid rgb(89,132,97);
 }
 
 .food-item:hover {
-    transform: translateY(-5px) rotateZ(1deg);
+    transform: translateY(-8px) rotateZ(0deg);
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-    background-color: var(--orange-light);
-    .food-name,.food-description,.food-price{
-    color: var(--green);}
+    box-shadow: rgb(143, 182, 150) 3px 3px 12px , rgb(105, 179, 149) -2px -2px 8px;
+    border-color: rgb(145,164,127);
     .photo img {
+      transform: scale(1.06);
+    
     }
-}
+    .food-description{
+      color: var(--green);
+    }
 
-.food-name,.food-description,.food-price{
-  padding:0 1rem;
-  color: var(--orange);
-  transition: all 0.3s ease-in-out;
+  }
+  
+  .food-name,.food-description,.food-price{
+  color: rgb(200, 230, 221);
+  transition: all 0.15s ease-in-out;
 
 }
 .photo {
-  height: 12rem;
-  margin-top: 10px;
+  height: 13rem;
+  
   /* border-radius: 1rem 1rem 5px 50px ; */
-  border-radius: 20%;
-  border: 2px solid var(--green);
+  border-radius: 50%;
   overflow: hidden;
+  transition: all 0.15s ease-in-out;
 }
 .photo img{
-    transition: all 0.3s ease-in-out;
+    transition: all 0.15s ease-in-out;
     height: 100%;
     width: 100%;
 }
@@ -95,7 +129,8 @@ background-color:var(--body_background);
 }
 
 .food-description {
-  font-size: 0.95em;
+  font-size: 0.7em;
+  color: var(--orange);
 }
 
 .food-price {

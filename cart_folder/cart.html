@@ -3,106 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Cart</title>
+    <title>Food Order System</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
+            background-color: #eafaea;
+            color: #064635;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            text-align: center;
         }
         .container {
-            width: 90%;
-            max-width: 400px;
-            background: white;
+            max-width: 40rem;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #c7f9cc;
             border-radius: 1rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
+            box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
         }
-        h2 {
-            text-align: center;
-            color: #333;
+        h1 {
+            font-size: 2rem;
         }
-        .cart-item {
+        .menu-item {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 1rem 0;
-            border-bottom: 1px solid #ddd;
-        }
-        .cart-item img {
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
-        }
-        .cart-item .details {
-            flex: 1;
-            margin-left: 1rem;
-        }
-        .cart-item input {
-            width: 3rem;
-            text-align: center;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 0.3rem;
-        }
-        .price {
-            color: #28a745;
-            font-weight: bold;
-        }
-        .total-section {
-            text-align: center;
-            margin-top: 1rem;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #28a745;
-        }
-        .checkout-btn {
-            width: 100%;
+            align-items: center;
             padding: 1rem;
-            background: #28a745;
+            border-bottom: 1px solid #64a964;
+        }
+        input {
+            width: 3rem;
+            padding: 0.5rem;
+            font-size: 1rem;
+            text-align: center;
+            border: 1px solid #064635;
+            border-radius: 0.5rem;
+        }
+        button {
+            margin-top: 1rem;
+            padding: 1rem;
+            font-size: 1.2rem;
+            background: #2a9134;
             color: white;
             border: none;
-            border-radius: 10px;
-            font-size: 1.2rem;
+            border-radius: 0.5rem;
             cursor: pointer;
+        }
+        button:hover {
+            background: #1b6b26;
+        }
+        #total {
+            font-size: 1.5rem;
             margin-top: 1rem;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Cart</h2>
-        <div class="cart-item">
-            <img src="https://via.placeholder.com/50" alt="Burger">
-            <div class="details">
-                <p>Burger</p>
-                <span class="price">₹50</span>
-            </div>
-            <input type="number" value="1" min="0">
+
+<div class="container">
+    <h1>Order Your Food</h1>
+    <div class="menu">
+        <div class="menu-item">
+            <span>Pizza - ₹200</span>
+            <input type="number" value="0" min="0" class="qty" data-price="200">
         </div>
-        <div class="cart-item">
-            <img src="https://via.placeholder.com/50" alt="Fries">
-            <div class="details">
-                <p>Fries</p>
-                <span class="price">₹30</span>
-            </div>
-            <input type="number" value="1" min="0">
+        <div class="menu-item">
+            <span>Burger - ₹100</span>
+            <input type="number" value="0" min="0" class="qty" data-price="100">
         </div>
-        <div class="cart-item">
-            <img src="https://via.placeholder.com/50" alt="Pizza">
-            <div class="details">
-                <p>Pizza</p>
-                <span class="price">₹100</span>
-            </div>
-            <input type="number" value="1" min="0">
+        <div class="menu-item">
+            <span>Pasta - ₹150</span>
+            <input type="number" value="0" min="0" class="qty" data-price="150">
         </div>
-        <div class="total-section">Total: ₹180</div>
-        <button class="checkout-btn">Proceed to Checkout</button>
+        <div class="menu-item">
+            <span>Cold Drink - ₹50</span>
+            <input type="number" value="0" min="0" class="qty" data-price="50">
+        </div>
     </div>
+    <button onclick="calculateTotal()">Calculate Total</button>
+    <div id="total">Total: ₹0</div>
+</div>
+
+<script>
+    function calculateTotal() {
+        let total = 0;
+        document.querySelectorAll('.qty').forEach(item => {
+            total += item.value * item.getAttribute('data-price');
+        });
+        document.getElementById('total').innerText = "Total: ₹" + total;
+    }
+</script>
+
 </body>
 </html>

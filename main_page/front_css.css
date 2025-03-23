@@ -48,7 +48,7 @@ body{
     bottom: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.15);
+    background-color: rgba(14, 71, 49, 0.379);
     
 
 }
@@ -452,7 +452,7 @@ font-weight: 600;
     justify-content: center;
     border-radius: 50%; /* Isse circle banega */
     font-size: 22px; /* Icon size */
-    padding: rem;
+    padding: 1.5rem;
   }
   
   .icon {
@@ -478,6 +478,8 @@ font-weight: 600;
   }
   .f_heading {
     color: var(--green);
+    font-weight: bold;
+    
   }
   .item span {
     height: 2rem;
@@ -486,8 +488,8 @@ font-weight: 600;
     color: azure;
   }
   .about p:nth-child(2) {
-    font-size: 0.8rem;
-    margin-top: 0.7rem;
+    font-size: 1rem;
+    margin-top: 0.3rem;
   }
   .span {
     height: 3rem;
@@ -561,11 +563,14 @@ font-weight: 600;
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    color: var(--gray);
-    font-size: 0.9rem;
+    color: var(--dark-gray);
+    font-size: 1.2rem;
   }
   .card a {
     color: var(--gray);
+  }
+  .card a:hover{
+    color: var(--footer_color);
   }
   .card .one {
     color: var(--dark-gray);
@@ -588,37 +593,71 @@ font-weight: 600;
   
   .end {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: 70%;
+    grid-template-columns:repeat(3,1fr);
+    width: 90%;
     height: auto;
     background-color: var(--grey);
     padding: 2rem;
-    margin: 2rem;
+    margin-left:3.5rem;
+
     border-radius: 1.1rem;
     justify-self: center;
   }
   .card .one{
       color: var(--green);
-      font-size: 1.5rem;
+      font-size: 1.6rem;
+  }
+  .email_submit{
+    display: flex;
+    gap: 2rem;
   }
   .card3 input{
-    margin: 0.6rem;
-    padding: 0.4rem;
+    border: 2px solid var(--orange);
+    height: 2rem;
+    width: 60%;
+    padding: 1rem;
+    font-size: 1.2rem;
     border-radius: 0.2rem;
-    color: var(--orange);
   
+  }
+  .card3 button{
+    border: 2px solid var(--orange);
+  background-color: var(--orange);
+  padding: 0.1rem;
+  width: 20%;
+  border-radius: 0.2rem;
+  
+  }
+  .card3 button:hover{
+    background-color: transparent;
   }
   a{
       text-decoration: none;
   }
   .card3 h1{
       color: var(--green);
-      margin-bottom: 1rem;
+      font-size: 1.6rem;
   }
   .card3 p{
-      font-size: 0.9rem;
+      font-size: 1.1rem;
       margin-top: 1rem;
       margin-bottom: 1rem;
   }
+
+  .opening_hrs{
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    text-align: right;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--footer_color);
+    
+  }
+  .op_heading{
+
+  }
+
   
   /* footer ends */
