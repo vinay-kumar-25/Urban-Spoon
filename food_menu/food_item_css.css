@@ -34,9 +34,14 @@ body img{
   width: 100%;
 }
 .music_button {
-  width: 60px;
-  height: 60px;
-  background-color: #ff6600;
+  width: 4rem;
+  height: 4rem;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1;
+
+  background-color: var(--orange);
   color: white;
   display: flex;
   align-items: center;
@@ -45,11 +50,18 @@ body img{
   border-radius: 50%;
   cursor: pointer;
   transition: background 0.3s ease;
+  animation: rotate 10s linear 0s infinite ;
+}
+@keyframes rotate {
+  from{transform: rotateZ(0deg);}
+  to{transform: rotateZ(360deg);}
+  
 }
 
 .music_button.playing {
-  background-color: #ff3333; /* Red when playing */
+  background-color:var(--green); /* Red when playing */
 }
+
 
 .menu-section {
   padding: 20px;
