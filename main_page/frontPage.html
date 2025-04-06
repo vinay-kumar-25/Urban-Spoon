@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 </head>
-
 <body>
 
   <!-- hero section starts here  -->
@@ -28,11 +27,13 @@
         <li><a href="#booking_section_link">Book Table</a></li>
       </ul>
       <div class="list-icons">
-        <li><a href="../login_pages/register_or_login.html"><button class="login-btn">Login</button></a></li>
+        <li id="login-container">
+            <!-- Login Button or Profile Picture will be added dynamically -->
+            <a href="../login_pages/register_or_login.html" class="btn login-btn">Login</a>
+        </li>
         <li><a href="search.html"><i class="fa-solid fa-magnifying-glass search-icon"></i></a></li>
         <li><a href="../cart_folder/cart.html"><i class="fa-solid fa-cart-shopping cart-icon"></i></a></li>
-        <li><a href="account.html"><i class="fa-solid fa-user account-icon"></i></a></li>
-      </div>
+    </div>
     </header>
 
     <div class="hero_inside">
@@ -158,10 +159,10 @@
           <!-- 1card -->
           <div class="card">
               <div class="one"> Quick Links</div>
-              <div class="two"><a href="#">Privacy Policy</a></div>
-              <div class="four"><a href="#">Cookies</a></div>
-              <div class="five"><a href="#">Help</a></div>
-              <div class="five"><a href="#">FAQs</a></div>
+              <div class="two"><a href="../Quick_links/privacy_policy.html">Privacy Policy</a></div>
+              <div class="four"><a href="../Quick_links/">Cookies</a></div>
+              <div class="five"><a href="../Quick_links/help.html">Help</a></div>
+              <div class="five"><a href="../Quick_links/faq.html">FAQs</a></div>
              </div>
             <!-- ends -->
 
@@ -186,6 +187,10 @@
       <div class="copyright">&copy 2025- Present UrbanSpoon. All rights reserved.</div>
     </div>
    <!-- ending area ends here -->
+
+   <script type="module" src="../firebase-config.js"></script>
+<script type="module" src="auth_status.js"></script>
+
 </body>
 
 </html>

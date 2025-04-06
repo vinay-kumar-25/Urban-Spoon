@@ -114,7 +114,34 @@ body{
         color: var(--orange);
       }
        
-       
+      .user-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .profile-pic {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        cursor: pointer;
+    }
+    
+    .logout-btn {
+        background: red;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+    
+    .logout-btn:hover {
+        background: darkred;
+    }
+    
         
  
 
