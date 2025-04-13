@@ -19,7 +19,6 @@
     font-family:"Nunito";
     box-sizing: border-box;
 }
-
 a{
     text-decoration: none;
 }
@@ -30,14 +29,10 @@ body{
     align-self: center;
     justify-self: center;
     max-width: 99vw;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position:end;
 }
 .hero_section{
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: relative;
   display: flex;
   justify-content: center;
@@ -131,27 +126,23 @@ body{
         border-radius: 50%;
         object-fit: cover;
         cursor: pointer;
-        display: none;
     }
-
     
     .logout-btn {
-        background: rgb(255, 51, 92);
+        background: red;
         color: white;
-        border: 2px solid rgb(255, 51, 92);
+        border: none;
         padding: 5px 10px;
         cursor: pointer;
         border-radius: 5px;
         font-size: 14px;
-        transition: 0.3s;
     }
     
     .logout-btn:hover {
-        background: transparent;
-        color: rgb(255, 51, 92);
+        background: darkred;
     }
     
-   
+        
  
 
 .hero_inside{
@@ -456,15 +447,18 @@ font-weight: 600;
     justify-content: center;
     align-items: center;
     padding: 2rem;
-    margin: 2rem auto;
+    margin: 2rem;
   }
   .f_head {
     text-align: center;
   }
-  
   .f_head :nth-child(1) {
-    font-size: 2.7rem;
+    font-size: 1.3rem;
     color: var(--green);
+  }
+  .f_head :nth-child(2) {
+    font-size: 2.7rem;
+    color: rgb(87, 77, 77);
     font-weight: bold;
   }
   .f_details {
@@ -473,7 +467,7 @@ font-weight: 600;
     height: auto;
     padding: 3rem;
     border-radius: 0.6rem;
-    margin:2rem auto;
+    margin-top: 2rem;
   }
   .icon_circle {
     background-color: orange; /* Circle ka background orange */
@@ -512,6 +506,7 @@ font-weight: 600;
   .f_heading {
     color: var(--green);
     font-weight: bold;
+    
   }
   .item span {
     height: 2rem;
@@ -597,30 +592,18 @@ font-weight: 600;
     gap: 2rem;
     color: var(--dark-gray);
     font-size: 1.2rem;
-    width: 20%;
   }
   .card a {
-    color: var(--body_background);
-    display: inline;
+    color: var(--gray);
   }
-  
+  .card a:hover{
+    color: var(--footer_color);
+  }
   .card .one {
     color: var(--dark-gray);
     font-weight: bold;
     font-size: 1rem;
   }
-
-  #quick_link{
-    transition: 0.3s ease-in-out;
-    border-bottom: 2px solid transparent;
-    width:12rem;
-   
-    }
- 
-    #quick_link:hover{
-      letter-spacing: 4px;
-      border-color: var(--orange);
-    }
   .line {
     border-top: 1px solid rgb(231, 213, 213);
     width: 100%;
@@ -636,17 +619,16 @@ font-weight: 600;
   }
   
   .end {
-    display:flex;
-    width: 85%;
+    display: grid;
+    grid-template-columns:repeat(3,1fr);
+    width: 90%;
     height: auto;
     background-color: var(--grey);
     padding: 2rem;
-    margin: 2rem auto;
-    gap: 3rem;
+    margin-left:3.5rem;
+
     border-radius: 1.1rem;
     justify-self: center;
-    background-image: url(woddenbg.jpg);
-    background-size: cover;
   }
   .card .one{
       color: var(--green);
@@ -656,34 +638,25 @@ font-weight: 600;
     display: flex;
     gap: 2rem;
   }
-  .card3{
-    width: 40%;
-  }
   .card3 input{
+    border: 2px solid var(--orange);
     height: 2rem;
     width: 60%;
     padding: 1rem;
     font-size: 1.2rem;
     border-radius: 0.2rem;
-    border: 2px solid var(--orange);
-    box-decoration-break:unset;
-    outline: none;
+  
   }
   .card3 button{
     border: 2px solid var(--orange);
   background-color: var(--orange);
   padding: 0.1rem;
-  color: white;
   width: 20%;
   border-radius: 0.2rem;
-  font-size:1rem;
-  font-weight:600;
-  transition: 0.3s;
   
   }
   .card3 button:hover{
     background-color: transparent;
-    color: var(--orange);
   }
   a{
       text-decoration: none;
@@ -693,99 +666,25 @@ font-weight: 600;
       font-size: 1.6rem;
   }
   .card3 p{
-      font-size: 1rem;
-      line-height: 1.7rem;
-      margin: 2rem auto;
-      color:var(--orange-light);
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
   }
 
-  .opening_hrs {
+  .opening_hrs{
     display: flex;
     flex-direction: column;
     gap: 1.4rem;
-    text-align: center;
+    text-align: right;
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
-    letter-spacing: 2px;
-   
+    color: var(--footer_color);
     
   }
-  .op_heading , .op_day , .op_time {
-    font-family: 'Dancing Script', cursive !important; /* Force apply */;
-    font-weight: bold;
-    font-size: 2.8rem;
-     color:var(--orange);
+  .op_heading{
+
   }
-  .op_day{
-    color: var(--green);
-  }
-
-
-
-  /* MAP MODAL STYLES */
-.map-modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.7);
-}
-
-.map-modal-content {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 1rem;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 700px;
-  position: relative;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-.close-btn {
-  color: #aaa;
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.clickable-address {
-  color: var(--footer_color);
-  cursor: pointer;
-  text-decoration:double;
-}
-
-
-/* CSS for the success alert box */
-.success-alert {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: #28a745; /* Green color */
-  color: white;
-  padding: 15px;
-  border-radius: 5px;
-  font-size: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 9999;
-  display: none; /* Initially hidden */
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.success-alert.show {
-  display: block;
-  opacity: 1;
-}
-
 
   
-  /* footer ends */   
+  /* footer ends */

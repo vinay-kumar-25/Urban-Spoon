@@ -3,80 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Order System</title>
+    <title>Your Cart</title>
     <link rel="stylesheet" href="cart.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="shortcut icon" href="../fevicon.jpg" type="image/x-icon">
+
   <link
     href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Bungee+Tint&family=Coustard:wght@400;900&family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lobster&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-
-<div class="container">
+  <div class="container">
     <div class="item_details">
-       <h1>Your Orders</h1>
-       <div class="food_table">
-       <table>
-        <thead>
-            <tr>
-                <th>Item</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
-              </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>sample</td>
-                <td>sample</td>
-                <td>sample</td>
-                <td>sample</td>
-            </tr>
-            <tr>
-                <td>sample</td>
-                <td>sample</td>
-                <td>sample</td>
-                <td>sample</td>
-            </tr>
-            <tr>
-                <td>sample</td>
-                <td>sample</td>
-                <td>sample</td>
-                <td>sample</td>
-            </tr>
-            <tr>
-                <td>sample</td>
-                <td>sample</td>
-                <td>sample</td>
-                <td>sample</td>
-            </tr>
-            <tr>
-                <td>sample</td>              <td>sample</td>
-                <td>sample</td>
-                <td>sample</td>
-            </tr>
-
-        </tbody>
-
-       </table>
+      <div class="head_ct"> <h1>Your Orders</h1><a href="../food_menu/food_items.html">Menu</a></div>
+       
+        <div class="food_table" id="cart-items">
+            <!-- Dynamic Cart Items will be rendered here -->
+        </div>
     </div>
-</div>
+    
     <div class="summary_pane">
         <h1>Summary </h1>
         <div class="bill_summary">
-            <div class="cost_title">Subtotal </div>
-            <div class="cost_price">15000</div>
+            <div class="cost_title">Subtotal</div>
+            <div class="cost_price" id="subtotal">₹0</div>
         </div>
         <div class="bill_summary">
-            <div class="cost_title">discount</div>
-            <div class="cost_price">5%</div>
+            <div class="cost_title">Discount</div>
+            <div class="cost_price" id="discount">5%</div>
         </div>
         <div class="bill_summary">
             <div class="cost_title">Total Amount</div>
-            <div class="cost_price">6000</div>
+            <div class="cost_price" id="total">₹0</div>
         </div>
         <hr>
         <div class="payment-options">
@@ -108,21 +68,138 @@
             </label>
           </div>
         </div>
-          
-        <button class="checkout_button" type="button" >Proceed with Order </button>
-          
-      
+        <button class="checkout_button" type="button" >Proceed with Order</button>
+      </div>
     </div>
-</div>
-<script>
-    function calculateTotal() {
-        let total = 0;
-        document.querySelectorAll('.qty').forEach(item => {
-            total += item.value * item.getAttribute('data-price');
-        });
-        document.getElementById('total').innerText = "Total: ₹" + total;
+    
+    
+    <script type="module">
+      window.removeItem = removeItem;
+window.updateQuantity = updateQuantity;
+
+      import {
+        auth,
+  database,
+  ref,
+  get,
+  set,
+  onAuthStateChanged
+} from "../firebase-config.js"; // adjust path if needed
+
+let firebaseCart = [];
+let currentUserUID = null;
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    currentUserUID = user.uid;
+    loadCartFromFirebase();
+  } else {
+    alert("Please log in to view your cart.");
+    window.location.href = "login.html"; // or your login page
+  }
+});
+
+
+  // Helper function to render the cart items dynamically
+  function renderCartItems(cart = []) {
+  const cartItemsContainer = document.getElementById('cart-items');
+  cartItemsContainer.innerHTML = '';
+  let subtotal = 0;
+
+  cart.forEach((item, index) => {
+    if (!item.quantity) item.quantity = 1;
+
+    const itemTotal = item.price * item.quantity;
+    subtotal += itemTotal;
+
+    const itemDiv = document.createElement('div');
+    itemDiv.className = 'cart-item';
+    itemDiv.innerHTML = `
+      <img src="${item.img}" alt="${item.name}">
+      <div class="item-details">
+          <div class="item-name">${item.name}</div>
+          <div class="item-price">₹${item.price}</div>
+      </div>
+      <div class="item-actions">
+          <input type="number" class="item-qty" value="${item.quantity}" min="1" 
+              onchange="updateQuantity(${index}, this)">
+          <div class="item-subtotal">₹${itemTotal}</div>
+          <button onclick="removeItem(${index})" class="remove-btn">❌</button>
+      </div>
+    `;
+
+    cartItemsContainer.appendChild(itemDiv);
+  });
+
+  updateSummary(subtotal);
+}
+
+
+  // Update the quantity of an item and recalculate totals
+  function updateQuantity(index, input) {
+  const newQuantity = parseInt(input.value, 10);
+  if (newQuantity < 1) {
+    input.value = 1;
+    return;
+  }
+
+  firebaseCart[index].quantity = newQuantity;
+
+  const cartRef = ref(database, 'carts/' + currentUserUID);
+  set(cartRef, firebaseCart).then(() => {
+    renderCartItems(firebaseCart);
+  });
+}
+
+
+function removeItem(index) {
+  firebaseCart.splice(index, 1);
+  const cartRef = ref(database, 'carts/' + currentUserUID);
+  set(cartRef, firebaseCart).then(() => {
+    renderCartItems(firebaseCart);
+  });
+}
+window.removeItem = removeItem; // 👈 Add this
+
+
+
+
+  // Update the summary section
+  function updateSummary(subtotal) {
+    const discount = 0.05; // 5% discount
+    const discountAmount = subtotal * discount;
+    const total = subtotal - discountAmount;
+
+    document.getElementById('subtotal').innerText = `₹${subtotal}`;
+    document.getElementById('total').innerText = `₹${total.toFixed(2)}`;
+}
+
+
+  // Run the render function on page load
+
+function loadCartFromFirebase() {
+  const cartRef = ref(database, 'carts/' + currentUserUID);
+  get(cartRef).then((snapshot) => {
+    if (snapshot.exists()) {
+      firebaseCart = snapshot.val();
+    } else {
+      firebaseCart = [];
     }
+    renderCartItems(firebaseCart);
+  });
+}
+
+function updateFirebaseCart(cart) {
+  if (currentUserUID) {
+    const cartRef = ref(database, 'carts/' + currentUserUID);
+    set(cartRef, cart);
+  }
+}
+
+
 </script>
 
 </body>
 </html>
+
+

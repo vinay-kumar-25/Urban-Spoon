@@ -1,122 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help & Support - Urban Spoon</title>
-    <style>
-        :root {
-            --primary-color: #fbaf32; /* Orange */
-            --secondary-color:#719a0a; /* Green */
-            --background-color: #f8f8f8; /* Light Gray */
-            --text-color: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Help & Support - Urban Spoon</title>
+  <style>
+    :root {
+      --primary-color: #0D47A1;
+      --secondary-color: #1565C0;
+      --text-color: #000000;
+      --bg-color: rgba(255, 255, 255, 0.9);
+      --font-size: 0.95rem;
+      --padding: 1.2rem;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: var(--background-color);
-            margin: 0;
-            padding: 0;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-        .container {
-            width: 90%;
-            max-width: 60%;
-            margin: auto;
-            text-align: center;
-            padding: 20px 20px;
-        }
+    body {
+      color: var(--text-color);
+      font-size: var(--font-size);
+      line-height: 1.5;
+      padding: var(--padding);
+    }
 
-        h1 {
-            color: var(--secondary-color);
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.9);
+      padding: var(--padding);
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    }
 
-        .help-box {
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            text-align: left;
-        }
+    h1 {
+      color: #ff6f00;
+      text-align: center;
+      font-size: 2.8rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      font-family: cursive;
+    }
 
-        .question {
-            background: var(--primary-color);
-            color: white;
-            padding: 15px;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 1.4rem;
-        }
+    .help-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
 
-        .answer {
-            padding: 15px;
-            color: var(--text-color);
-            background: #e7e7e7;
-            border-radius: 5px;
-            margin-top: 1.5rem;
-            font-size: 1.2rem;
-        }
+    .help-box {
+      background: rgb(248, 255, 248);
+      padding: 1.2rem;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        .contact-section {
-            background: var(--secondary-color);
-            color: white;
-            padding: 30px;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
+    .help-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
 
-        .contact-section h2 {
-            font-size: 2rem;
-        }
+    .question {
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      font-size: 1.1rem;
+    }
 
-        .contact-info {
-            font-size: 1.2rem;
-        }
+    .answer {
+      font-size: 1rem;
+      color: #333;
+    }
 
-        img {
-            max-width: 100%;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
-    </style>
+    .contact-section {
+      background: rgb(87, 175, 87);
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-info {
+      font-size: 1rem;
+    }
+
+    .contact-info a {
+      color: white;
+      text-decoration: none;
+    }
+
+    @media screen and (max-width: 500px) {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Help & Support</h1>
+  <div class="container">
+    <h1>How Can We Help You</h1>
 
-
-        <div class="help-box">
-            <div class="question">How can I track my order?</div>
-            <div class="answer">Go to "My Orders" in your account and click on "Track Order" to see real-time updates.</div>
-        </div>
-
-        <div class="help-box">
-            <div class="question">I forgot my password. How do I reset it?</div>
-            <div class="answer">Click on "Forgot Password" on the login page, enter your email, and follow the instructions.</div>
-        </div>
-
-        <div class="help-box">
-            <div class="question">How do I update my profile details?</div>
-            <div class="answer">Log into your account, go to "Profile Settings," and update your information.</div>
-        </div>
-
-        <div class="help-box">
-            <div class="question">I have an issue with my payment. What should I do?</div>
-            <div class="answer">Contact our support team with your transaction ID, and we will assist you.</div>
-        </div>
-
-        <div class="contact-section">
-            <h2>Need More Help?</h2>
-            <p class="contact-info">📧 Email: support@urbanspoon.com</p>
-            <p class="contact-info">📞 Call: +123 456 7890</p>
-            <p class="contact-info">🕘 Support Hours: 9 AM - 9 PM (Mon-Sat)</p>
-        </div>
-
+    <div class="help-grid">
+      <div class="help-box">
+        <div class="question">1. How can I track my order?</div>
+        <div class="answer">You can track your order from the “My Orders” section in your account dashboard.</div>
+      </div>
+      <div class="help-box">
+        <div class="question">2. I forgot my password. How do I reset it?</div>
+        <div class="answer">Click on “Forgot Password” on the login page and follow the steps to reset your password.</div>
+      </div>
+      <div class="help-box">
+        <div class="question">3. How do I update my profile details?</div>
+        <div class="answer">Login to your account and go to “Profile Settings” to update your personal information.</div>
+      </div>
+      <div class="help-box">
+        <div class="question">4. I have an issue with my payment. What should I do?</div>
+        <div class="answer">Please contact our support team with your order and transaction ID for quick assistance.</div>
+      </div>
+      <div class="help-box">
+        <div class="question">5. Can I cancel or modify my order?</div>
+        <div class="answer">Orders can be modified or canceled within 10 minutes of placing them from the “My Orders” section.</div>
+      </div>
+      <div class="help-box">
+        <div class="question">6. What if my food arrives late?</div>
+        <div class="answer">We try to deliver on time. If there’s a delay, you can check the status from your order history or contact support.</div>
+      </div>
+      <div class="help-box">
+        <div class="question">7. How do I apply a promo code?</div>
+        <div class="answer">You can enter the promo code during checkout in the payment section before placing the order.</div>
+      </div>
+      <div class="help-box">
+        <div class="question">8. Is my payment information secure?</div>
+        <div class="answer">Yes. All transactions are secured with SSL encryption and your card details are never stored on our servers.</div>
+      </div>
+      <div class="help-box">
+        <div class="question">9. Do you offer refunds?</div>
+        <div class="answer">Yes, refunds are processed within 5-7 business days if the issue qualifies based on our refund policy.</div>
+      </div>
+     
     </div>
+    
+
+    <div class="contact-section">
+      <h2>Need More Help?</h2>
+      <p class="contact-info"><a href="mailto:support@urbanspoon.com">📧 Email: support@urbanspoon.com</a></p>
+      <p class="contact-info">📞 Call: +123 456 7890</p>
+      <p class="contact-info">🕘 Support Hours: 9 AM - 9 PM (Mon-Sat)</p>
+    </div>
+    
+  </div>
 
 </body>
 </html>
