@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Options</title>
+  <style>
+    :root {
+      --primary-green: #28a745;
+      --primary-orange: #ff7f0e;
+      --light-bg: #fdfdfd;
+      --light-border: #ddd;
+      --input-bg: #fff;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f6f7;
+      padding: 2rem;
+      color: #333;
+    }
+
+    .payment-container {
+      max-width: 950px;
+      margin: auto;
+      background: var(--light-bg);
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+
+    h1 {
+      color: var(--primary-green);
+      margin-bottom: 1rem;
+    }
+
+    .payment-methods {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .payment-method {
+      flex: 1;
+      text-align: center;
+      padding: 1rem;
+      border: 2px solid var(--light-border);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background-color: #fafafa;
+    }
+
+    .payment-method:hover {
+      background-color: #f0fdf4;
+    }
+
+    .payment-method.active {
+      border-color: var(--primary-orange);
+      background-color: #fff3e6;
+    }
+
+    .form-section {
+      display: none;
+      margin-top: 1.5rem;
+    }
+
+    .form-section.active {
+      display: block;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      background-color: var(--input-bg);
+    }
+
+    input:focus {
+      border-color: var(--primary-green);
+      outline: none;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
+
+    button {
+      padding: 0.9rem 1.7rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-btn {
+      background-color: #e9ecef;
+      color: #333;
+    }
+
+    .back-btn:hover {
+      background-color: #d6d6d6;
+    }
+
+    .proceed-btn {
+      background-color: var(--primary-orange);
+      color: white;
+    }
+
+    .proceed-btn:hover {
+      background-color: #e96e00;
+    }
+  </style>
+</head>
+<body>
+  <div class="payment-container">
+    <h1>Payment</h1>
+    <p>Select your payment method</p>
+
+    <div class="payment-methods">
+      <div class="payment-method active" onclick="selectMethod('credit')">
+        <p><strong>Credit Card</strong></p>
+      </div>
+      <div class="payment-method" onclick="selectMethod('paypal')">
+        <p><strong>PayPal</strong></p>
+      </div>
+      <div class="payment-method" onclick="selectMethod('amazon')">
+        <p><strong>Amazon Pay</strong></p>
+      </div>
+    </div>
+
+    <!-- Credit Card Form -->
+    <div id="credit" class="form-section active">
+      <div class="form-group">
+        <label>Cardholder's Name</label>
+        <input type="text" placeholder="Name" />
+      </div>
+      <div class="form-group">
+        <label>Card Number</label>
+        <input type="text" placeholder="XXXX-XXXX-XXXX-1234" />
+      </div>
+      <div class="form-group">
+        <label>Expiration</label>
+        <input type="text" placeholder="MM/YY" />
+      </div>
+      <div class="form-group">
+        <label>CVV</label>
+        <input type="text" placeholder="111" />
+      </div>
+    </div>
+
+    <!-- PayPal Form -->
+    <div id="paypal" class="form-section">
+      <div class="form-group">
+        <label>PayPal Email</label>
+        <input type="email" placeholder="user@example.com" />
+      </div>
+      <p style="color: gray;">You will be redirected to PayPal to complete your purchase.</p>
+    </div>
+
+    <!-- Amazon Pay Form -->
+    <div id="amazon" class="form-section">
+      <div class="form-group">
+        <label>Amazon Account Email</label>
+        <input type="email" placeholder="amazonuser@example.com" />
+      </div>
+      <p style="color: gray;">Amazon Pay will securely handle your transaction.</p>
+    </div>
+
+    <div class="button-group">
+      <button class="back-btn"> <a href="../cart_folder/cart.html">  ← Return to Store</a></button>
+      <button class="proceed-btn">Proceed →</button>
+    </div>
+  </div>
+
+  <script>
+    function selectMethod(method) {
+      // Toggle active class on buttons
+      document.querySelectorAll('.payment-method').forEach(btn => btn.classList.remove('active'));
+      if (method === 'credit') {
+        document.querySelectorAll('.payment-method')[0].classList.add('active');
+      } else if (method === 'paypal') {
+        document.querySelectorAll('.payment-method')[1].classList.add('active');
+      } else if (method === 'amazon') {
+        document.querySelectorAll('.payment-method')[2].classList.add('active');
+      }
+
+      // Show selected form, hide others
+      ['credit', 'paypal', 'amazon'].forEach(id => {
+        const section = document.getElementById(id);
+        if (id === method) {
+          section.classList.add('active');
+        } else {
+          section.classList.remove('active');
+        }
+      });
+    }
+  </script>
+</body>
+</html>

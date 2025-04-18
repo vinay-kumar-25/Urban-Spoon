@@ -11,8 +11,10 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Bungee+Tint&family=Coustard:wght@400;900&family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lobster&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
     rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../fevicon.jpg" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="shortcut icon" href="../fevicon.jpg" type="image/x-icon">
+
 </head>
 <body>
 
@@ -42,35 +44,44 @@
         natural goodness, and a touch of perfection. Simple, honest, and full of taste.</div>
       <div class="hero_buttons">
         <a href="../food_menu/food_items.html" class="view_menu_button">View Menu</a>
-        <a href="#book_table" class="book_table_button">Book Table</a>
+        <a href="#booking_section_link" class="book_table_button">Book Table</a>
       </div>
     </div>
   </div>
 
   <!-- table booking section  -->
-  <div class="booking_section" id="booking_section_link">
-
-    <div class="booking_table_image" >
-      <div class="booking_image_text">
-        <div class="head">Book A Table</div>
-        <div class="booking_info">
-          Book Your Table For Private Dinners & Happy Hours</div>
+  <!-- table booking section -->
+<div class="booking_section" id="booking_section_link">
+  <div class="booking_table_image">
+    <div class="booking_image_text">
+      <div class="head">Book A Table</div>
+      <div class="booking_info">
+        Book Your Table For Private Dinners & Happy Hours
       </div>
     </div>
+  </div>
 
-    <div class="booking_content">
-      <form action="">
-        <input class="booking_inputs" placeholder="Name" type="text" required>
-        <input class="booking_inputs" placeholder="Email" type="email">
-        <input class="booking_inputs" placeholder="Mobile" type="number">
-        <input class="booking_inputs" placeholder="Date" type="date" value="02/05/2025">
-        <input class="booking_inputs" placeholder="Time" type="time" value="00:00">
-        <input class="booking_inputs" placeholder="Guests" type="number">
-        <input class="booking_inputs" type="submit" name="" id="" value="Submit">
-      </form>
-    </div>
+  <div class="booking_content">
+    <form id="bookingForm">
+      <input class="booking_inputs" id="name" placeholder="Name" type="text" required>
+      <input class="booking_inputs" id="email" placeholder="Email" type="email" required>
+      <input class="booking_inputs" id="mobile" placeholder="Mobile" type="number" required>
+      <input class="booking_inputs" id="date" placeholder="Date" type="date" value="2025-05-02" required>
+      <input class="booking_inputs" id="time" placeholder="Time" type="time" value="00:00" required>
+      <input class="booking_inputs" id="guests" placeholder="Guests" type="number" required>
+      <input class="booking_inputs" type="submit" id="submit_table_button">
+    </form>
+    <!-- Add this div for the alert -->
+<div id="success-alert" class="success-alert" style="display: none;">
+  Booking Successful!
+</div>
+
   </div>
-  </div>
+</div>
+
+
+<!-- table booking section ends here -->
+
  <!-- booking table section ends here -->
 
 
@@ -81,7 +92,7 @@
         <div class="about_heading">About us</div>
         <div class="about_subheading">Cooking Since 1990</div>
         <div class="about_para">Since 1990, Urban Spoon has been serving delicious and authentic flavors with a passion for quality and freshness. Our journey began with a simple vision—to create a place where food lovers can indulge in mouthwatering dishes made from the finest ingredients. Over the years, we have built a reputation for excellence, offering a perfect blend of tradition and innovation. Whether you're here for a quick bite or a lavish meal, we promise an unforgettable dining experience. Join us and taste the difference!</div>
-        <button class="about_button" >Book a table</button>
+        <a href="#booking_section_link" class="about_button" >Book a table</a>
     </div>
 </div>
 <!-- about ends -->
@@ -91,31 +102,39 @@
   <div class="footer">
     <div class="f_head">
       <p>Contact Us</p>
-      <p>Contact For Any Query</p>
     </div>
     <div class="f_details">
       <div class="f_grid">
         <div class="item">
-          <span  class="icon_circle"><i class="fas fa-map-marker-alt icon"></i></span>
+          <span class="icon_circle"><i class="fas fa-map-marker-alt icon"></i></span>
           <div class="about">
             <p class="f_heading">Address</p>
-            <p>123 Street, Srinagar Garhwal</p>
+            <p class="clickable-address" id="openMap">123 Street, Srinagar Garhwal</p>
           </div>
         </div>
+        
         <div class="item">
           <span class="icon_circle"><i class="fas fa-phone icon"></i></span>
           <div class="about">
             <p class="f_heading">Call us</p>
-            <p>+012 345 6789</p>
+            <p>+091 8950857966</p>
           </div>
         </div>
-        <div class="item">
-          <span class="icon_circle"><i class="fas fa-envelope icon"></i></span>
-          <div class="about">
-            <p class="f_heading">Email us</p>
-            <p>urbanspoon990@gmail.com</p>
-          </div>
-        </div>
+        <!-- Your Email Section -->
+<div class="item">
+  <span class="icon_circle"><i class="fas fa-envelope icon"></i></span>
+  <div class="about">
+    <p class="f_heading">Email us <a href="https://mail.google.com/mail/u/0/#inbox?compose=new">urbanSpoon77@gmail.com</a></p>
+  </div>
+</div>
+
+<script>
+  function openGmail() {
+    // This will open Gmail compose with pre-filled details
+    window.location.href = "mailto:vianykumar12725@gmail.com?subject=Query%20for%20UrbanSpoon&body=Hello%2C%20I%20have%20a%20query%20about%20...";
+  }
+</script>
+
         <div class="item">
           <span class="icon_circle"><i class="fas fa-share-alt icon"></i> </span>
           <div class="about">
@@ -132,10 +151,6 @@
                 class="social_site"
               /><img
                 src="linkedin-round-svgrepo-com.svg"
-                alt=""
-                class="social_site"
-              /><img
-                src="twitter.svg"
                 alt=""
                 class="social_site"
               /><img
@@ -159,10 +174,10 @@
           <!-- 1card -->
           <div class="card">
               <div class="one"> Quick Links</div>
-              <div class="two"><a href="../Quick_links/privacy_policy.html">Privacy Policy</a></div>
-              <div class="four"><a href="../Quick_links/">Cookies</a></div>
-              <div class="five"><a href="../Quick_links/help.html">Help</a></div>
-              <div class="five"><a href="../Quick_links/faq.html">FAQs</a></div>
+              <div id="quick_link" class="two"><a href="../Quick_links/privacy_policy.html">Privacy Policy</a></div>
+              <div id="quick_link" class="four"><a href="../Quick_links/cookies.html">Cookies</a></div>
+              <div id="quick_link" class="five"><a href="../Quick_links/help.html">Help</a></div>
+              <div id="quick_link" class="five"><a href="../Quick_links/faq.html">FAQs</a></div>
              </div>
             <!-- ends -->
 
@@ -188,8 +203,49 @@
     </div>
    <!-- ending area ends here -->
 
-   <script type="module" src="../firebase-config.js"></script>
+   
+   
+   <!-- Map Modal -->
+   <div id="mapModal" class="map-modal">
+     <div class="map-modal-content">
+       <span class="close-btn" id="closeMap">&times;</span>
+       <iframe
+       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3441.820924496068!2d78.77077521447658!3d30.22272791206774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3909175091688cdd%3A0x6274be0a8e4d299f!2sSrinagar%2C%20Uttarakhand!5e0!3m2!1sen!2sin!4v1683018487623!5m2!1sen!2sin"
+       width="100%"
+       height="400"
+       style="border:0;"
+       allowfullscreen=""
+       loading="lazy"
+       referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+  
+  <script type="module" src="firebase-config.js"></script>
 <script type="module" src="auth_status.js"></script>
+<script>
+  const openBtn = document.getElementById("openMap");
+  const modal = document.getElementById("mapModal");
+  const closeBtn = document.getElementById("closeMap");
+
+  openBtn.onclick = function () {
+    modal.style.display = "block";
+  };
+
+  closeBtn.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
+
+<script type="module" src="booking.js"></script>
+
+
 
 </body>
 

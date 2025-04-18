@@ -1,0 +1,111 @@
+/* Admin Dashboard Styles */
+:root {
+    --primary-color: #FF6F00; /* Vibrant Orange */
+    --secondary-color: #4CAF50; /* Fresh Green */
+    --background-color: #f8f9fa; /* Light background */
+    --card-background: white;
+    --highlight-bg: #fff8e1; /* Soft Yellow for Highlights */
+    --text-color: #333; /* Dark Text */
+    --font-family: 'Arial', sans-serif;
+    --border-radius: 12px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --padding: 20px;
+  }
+  
+  body {
+    font-family: var(--font-family);
+    background: var(--background-color);
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 20px;
+    padding: 20px;
+  }
+  
+  .card {
+    background: var(--card-background);
+    padding: var(--padding);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card h2 {
+    color: var(--text-color);
+    font-size: 1.5rem;
+  }
+  
+  .highlight {
+    background-color: var(--highlight-bg);
+    border-left: 5px solid var(--primary-color);
+  }
+  
+  .full-width {
+    grid-column: 1 / -1;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table th, table td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  table th {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  table td {
+    background-color: #f9f9f9;
+  }
+  
+  ul {
+    list-style-type: square;
+    padding-left: 20px;
+  }
+  
+  #likedDish p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+  
+  #profitSummary p {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+  }
+  
+  #testimonials li {
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .dashboard-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  

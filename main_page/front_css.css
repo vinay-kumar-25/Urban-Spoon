@@ -22,6 +22,7 @@
 
 a{
     text-decoration: none;
+    color: var(--body_color);
 }
 
 body{
@@ -637,13 +638,13 @@ font-weight: 600;
   
   .end {
     display:flex;
-    width: 85%;
+    width: 86.2%;
     height: auto;
     background-color: var(--grey);
     padding: 2rem;
     margin: 2rem auto;
     gap: 3rem;
-    border-radius: 1.1rem;
+    border-radius:0.6rem;
     justify-self: center;
     background-image: url(woddenbg.jpg);
     background-size: cover;
@@ -655,6 +656,12 @@ font-weight: 600;
   .email_submit{
     display: flex;
     gap: 2rem;
+  }
+  .email_submit :nth-child(1){
+    border-radius: 1rem;
+    font-size:0.9rem;
+    font-weight: 600;
+
   }
   .card3{
     width: 40%;
@@ -675,7 +682,7 @@ font-weight: 600;
   padding: 0.1rem;
   color: white;
   width: 20%;
-  border-radius: 0.2rem;
+  border-radius: 1rem;
   font-size:1rem;
   font-weight:600;
   transition: 0.3s;
@@ -788,4 +795,7 @@ font-weight: 600;
 
 
   
-  /* footer ends */   
+  /* footer ends */
+  
+  
+  

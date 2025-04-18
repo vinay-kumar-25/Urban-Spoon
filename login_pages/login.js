@@ -42,11 +42,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         if (snapshot.exists()) {
                             console.log("✅ Admin detected, redirecting to main website...");
                             alert("Welcome, Admin!");
-                            window.location.href = "../main_page/frontPage.html"; // Main Website Page
+                            window.location.href = "../main_page/index.html"; // Main Website Page
                         } else {
                             console.log("✅ User detected, redirecting to main website...");
                             alert("Welcome, User!");
-                            window.location.href = "../main_page/frontPage.html"; // Main Website Page
+                            window.location.href = "../main_page/index.html"; // Main Website Page
                         }
                     })
                     .catch((dbError) => {
