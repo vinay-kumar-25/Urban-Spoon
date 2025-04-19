@@ -1,55 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="admin.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <h1>🍽️ Admin Dashboard</h1>
-  </header>
-
-  <div class="dashboard-grid">
-    <!-- Most Liked Dish -->
-    <div class="card highlight" id="likedDish">
-      <h2>Most Liked Dish</h2>
-      <p id="topDishName">Loading...</p>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2>Urban</h2><h2>Spoon</h2>
     </div>
 
-    <!-- Profit Summary -->
-    <div class="card" id="profitSummary">
-      <h2>Profit Summary</h2>
-      <p>Total Profit: ₹<span id="profitAmount">0</span></p>
-    </div>
+    <!-- Main Content -->
+    <div class="main">
+      <!-- Header -->
+      <div class="header">
+        <div class="menu-admin">
+          <h2>Dashboard</h2>
+        </div>
+        <div class="user-info">
+          <button class="menu-btn">Menu</button>
+          <img src="https://flagcdn.com/in.svg" width="24" />
+          <span class="username">Admin</span>
+        </div>
+      </div>
 
-    <!-- Testimonials -->
-    <div class="card" id="testimonials">
-      <h2>Customer Testimonials</h2>
-      <ul id="testimonialList"></ul>
-    </div>
+      <!-- Cards and Chart Section -->
+      <div class="top-section">
+        <!-- Left Cards -->
+        <div class="left-column">
+          <div class="card">
+            <h4>Most Liked Dishes</h4>
+            <div class="dishes-list"></div>
+          </div>
+          <div class="card">
+            <h4>Profit</h4>
+            <div class="chart-placeholder">
+              <div class="donut"></div>
+            </div>
+          </div>
+        </div>
 
-    <!-- Bookings Table -->
-    <div class="card full-width">
-      <h2>All Bookings</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Mobile</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Guests</th>
-          </tr>
-        </thead>
-        <tbody id="bookingTableBody">
-          <!-- Data via JS -->
-        </tbody>
-      </table>
+        <!-- Right: Customer Testimonials -->
+        <div class="right-column">
+          <h2 class="section-title">Customer Testimonials</h2>
+          <br> <br>
+          <div class="review-card">
+            <h4>Rahul Sharma</h4>
+            <p>"Food is amazing!"</p>
+            <p class="email">rahul@example.com</p>
+          </div>
+          <div class="review-card">
+            <h4>Anjali Verma</h4>
+            <p>"Great ambiance and service."</p>
+            <p class="email">anjali@example.com</p>
+          </div>
+          <div class="review-card">
+            <h4>Vikram Singh</h4>
+            <p>"Delicious and affordable."</p>
+            <p class="email">vikram@example.com</p>
+          </div>
+          <div class="review-card">
+            <h4>Priya Joshi</h4>
+            <p>"Perfect for family dinners."</p>
+            <p class="email">priya@example.com</p>
+          </div>
+          <div class="review-card">
+            <h4>Vikram Singh</h4>
+            <p>"Delicious and affordable."</p>
+            <p class="email">vikram@example.com</p>
+          </div>
+          <div class="review-card">
+            <h4>Priya Joshi</h4>
+            <p>"Perfect for family dinners."</p>
+            <p class="email">priya@example.com</p>
+          </div>
+         
+        </div>
+      </div>
+
+      <!-- Bookings Table Section -->
+      <div class="bookings">
+        <h3 class="section-title">Booking Table</h3>
+        <div class="table-placeholder">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Guests</th>
+                <th>Contact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Rohit Sen</td>
+                <td>2025-04-20</td>
+                <td>7:00 PM</td>
+                <td>4</td>
+                <td>rohit@example.com</td>
+              </tr>
+              <tr>
+                <td>Kajal Mehta</td>
+                <td>2025-04-21</td>
+                <td>8:30 PM</td>
+                <td>2</td>
+                <td>kajal@example.com</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
-
-  <script type="module" src="admin.js"></script>
 </body>
 </html>
