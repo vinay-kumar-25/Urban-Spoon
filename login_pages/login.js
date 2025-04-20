@@ -3,61 +3,73 @@ import { ref, get } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-dat
 
 console.log("✅ login.js is loaded!");
 
-// Wait for DOM to load
 document.addEventListener("DOMContentLoaded", function () {
     console.log("🟢 DOM fully loaded!");
 
     const loginForm = document.querySelector(".login-form");
 
     if (!loginForm) {
-        console.error("❌ ERROR: login-form not found! Check your HTML file.");
+        console.error("❌ ERROR: login-form not found!");
         return;
     }
 
     loginForm.addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent page refresh
+        event.preventDefault();
         console.log("🟢 Login form submitted");
 
-        // Get email & password from form
         const email = document.querySelector(".login-form input[type='email']").value;
         const password = document.querySelector(".login-form input[type='password']").value;
 
         console.log("📥 Login Data:", { email, password });
 
         if (!email || !password) {
-            alert("❌ Please enter both email and password.");
+            showToast("❌ Please enter both email and password.", true);
             return;
         }
 
-        // Firebase Authentication - Sign In
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                console.log("✅ User logged in successfully!");
                 const user = userCredential.user;
                 const userId = user.uid;
 
-                // Check if user is an Admin
-                get(ref(database, "admins/" + userId))
+                // Get user name
+                get(ref(database, "users/" + userId + "/name"))
                     .then((snapshot) => {
-                        if (snapshot.exists()) {
-                            console.log("✅ Admin detected, redirecting to main website...");
-                            alert("Welcome, Admin!");
-                            window.location.href = "../main_page/index.html"; // Main Website Page
-                        } else {
-                            console.log("✅ User detected, redirecting to main website...");
-                            alert("Welcome, User!");
-                            window.location.href = "../main_page/index.html"; // Main Website Page
-                        }
+                        const userName = snapshot.exists() ? snapshot.val() : "User";
+
+                        // Show welcome toast
+                        showToast(`Welcome, ${userName}!`, false);
+
+                        // Redirect after 2 seconds
+                        setTimeout(() => {
+                            window.location.href = "../main_page/index.html";
+                        }, 2000);
                     })
                     .catch((dbError) => {
-                        console.error("❌ Database Error:", dbError);
-                        alert("Database Error: " + dbError.message);
+                        console.error("❌ Error getting user name:", dbError);
+                        showToast("Database Error: " + dbError.message, true);
                     });
-
             })
             .catch((authError) => {
                 console.error("❌ Authentication Error:", authError);
-                alert("Authentication Error: " + authError.message);
+                showToast("Authentication Error: " + authError.message, true);
             });
     });
+
+    // Toast function
+    function showToast(message, isError) {
+        const toast = document.createElement("div");
+        toast.className = isError ? "toast error" : "toast success";
+        toast.textContent = message;
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+            toast.classList.add("show");
+        }, 300); // Slight delay to allow CSS transition
+
+        setTimeout(() => {
+            toast.classList.remove("show");
+            setTimeout(() => document.body.removeChild(toast), 300);
+        }, 2500); // Total visible time
+    }
 });

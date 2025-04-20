@@ -108,6 +108,7 @@ body{
         .slider_sidebar_button:hover{
           color: var(--orange);
         }
+
         
         .list-icons a:hover ,.list-icons i:hover{
             color: var(--orange);
@@ -544,10 +545,27 @@ font-weight: 700;
   .quick_link_section{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     color: var(--dark-gray);
     font-size: 1.2rem;
   }
+  #quick_link{
+    text-align: center;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--green);
+    font-size: 1rem;
+    border-radius:1rem;
+    max-width: 200px;
+    min-width: 100px;
+    backdrop-filter: blur(2px);
+    transition: 0.1s ease-out;
+  }
+  #quick_link:hover{
+    box-shadow: 0 0 8px var(--orange);
+   }
   .card {
     display: flex;
     flex-direction: column;
@@ -560,18 +578,7 @@ font-weight: 700;
     color: var(--body_background);
     display: inline;
   }
-  
-  #quick_link{
-    transition: 0.3s ease-in-out;
-    border-bottom: 2px solid transparent;
-    width:12rem;
-    
-  }
-  
-  #quick_link:hover{
-    letter-spacing: 4px;
-    border-color: var(--orange);
-  }
+
   .line {
     border-top: 1px solid rgb(231, 213, 213);
     width: 100%;
@@ -807,15 +814,11 @@ font-weight: 700;
     width: 100%;
     text-align: center;
   }
-  .quick_link_section{
-    flex-direction: row;
-    width: 100%;
-  }
-  }
-  
-  
+}
 
-   /* Sidebar base styles */
+
+
+/* Sidebar base styles */
 .side_slider {
   position: fixed;
   top: 4rem;
@@ -866,9 +869,19 @@ font-weight: 700;
 
 .side_slider .login-btn {
   color: white !important;
-  display: inline-block;
-  text-align: center;
+  background: var(--orange);
+  border: 2px solid var(--orange);
+  padding: 5px 15px !important;
+  cursor: pointer;
+  border-radius: 1rem;
+  font-size: 14px !important;
+  transition: 0.3s;
   
+  
+}
+.side_slider .login-btn:hover {
+  background: transparent;
+  color: var(--orange)!important;
 }
 
 .side_slider .search-icon,
@@ -883,12 +896,37 @@ font-weight: 700;
   .list-icons {
     display: none;
   }
-
+  
   .side_slider .list,
   .side_slider .list-icons {
     display: block;
   }
+  header{
+    padding: 2rem  1rem;
+  }
+  .quick_link_section{
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 
+  }
+  #quick_link{
+    text-align: center;
+    padding: 0.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--green);
+    font-size: 1rem;
+    border-radius:1rem;
+    width: 40%;
+    max-width: 300px;
+    min-width: 100px;
+    backdrop-filter: blur(3px);
+  }
+ 
 
 }
 

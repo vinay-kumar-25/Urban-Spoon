@@ -30,10 +30,11 @@ body {
     display: flex;
     width: 70%;
     background: #fff;
-    border-radius: 10px;
+    border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     align-items: stretch;
+    border: 2px solid var(--green);
 }
 
 /* Left Side (Image Section) */
@@ -52,6 +53,7 @@ body {
 .right {
  padding: 2rem;
  width: 50%;
+ background-color: rgb(237,237,233);
 }
 
 /* Form Styling */
@@ -72,9 +74,13 @@ body {
 .input-group input {
     width: 100%;
     padding: 10px;
+    outline: none;
     font-size: 1rem;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
+}
+.input-group input:focus{
+    border: 1px solid var(--orange);
 }
 
 /* Remember Me & Forgot Password */
@@ -94,14 +100,15 @@ body {
 
 /* Sign In Button */
 .btn {
-    border: 2px solid var(--orange);
     background:var(--orange);
     color: white;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
+    outline: none;
+    border:2px solid var(--orange);
 }
 
 .btn:hover {
@@ -133,4 +140,74 @@ body {
 }
 .or{
     text-align: center;
+}
+
+.toast {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: -350px; /* Hidden off-screen */
+    width: 100%;
+    max-width: 500px;
+    min-width: 220px;
+    height: auto;
+    background-color: rgba(76, 175, 80, 0.85); /* Green - Success */
+    color: white;
+    padding: 16px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: right 0.4s ease-in-out;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    word-wrap: break-word;
+  }
+  
+  /* Slide in */
+  .toast.show {
+    right: 20px;
+  }
+  
+  /* Error variant */
+  .toast.error {
+    background-color: rgba(255, 51, 92, 0.85); /* Reddish pink */
+  }
+  
+  /* Responsive for smaller screens */
+  @media (max-width: 1100px) {
+    .toast {
+      width: 90%;
+      right: -100%;
+    }
+  
+    .toast.show {
+      right: 5%;
+    }
+  }
+  
+
+@media (max-width:1100px) {
+    .container{
+       flex-wrap: wrap;
+       width: 90%;
+
+    }
+    .left{
+        width: 100%;
+      
+
+    }
+    .right{
+    width: 100%;
+    padding: 2rem;
+   
+    }
+   
+    
 }
