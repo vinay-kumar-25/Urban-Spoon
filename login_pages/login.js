@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .catch((authError) => {
                 console.error("❌ Authentication Error:", authError);
-                showToast("Authentication Error: " + authError.message, true);
+                showToast("Invalid Username or Password", true);
             });
     });
 

@@ -1,47 +1,69 @@
-// Import Firebase database functions
+// Import Firebase functions
 import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
-import { app } from '../firebase-config.js'; // Adjusted path to parent folder
+import { app, auth } from '../firebase-config.js';
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
-// Initialize Firebase database reference
+// Initialize Firebase Database
 const db = getDatabase(app);
 
-// Add event listener for form submission
+// Show toast notification
+function showBookingToast(message, isError = false) {
+  const toast = document.getElementById("booking-toast");
+  toast.textContent = message;
+  toast.style.backgroundColor = isError ? "#e74c3c" : "#4CAF50";
+  toast.classList.remove("hidden");
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+    toast.classList.add("hidden");
+  }, 3000);
+}
+
+// Track user login status
+let currentUser = null;
+onAuthStateChanged(auth, (user) => {
+  currentUser = user;
+});
+
+// Handle form submission
 document.getElementById("bookingForm").addEventListener("submit", function (e) {
-  e.preventDefault(); // Prevent page reload on form submit
+  e.preventDefault();
 
-  // Get form data
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const mobile = document.getElementById("mobile").value;
-  const date = document.getElementById("date").value;
-  const time = document.getElementById("time").value;
-  const guests = document.getElementById("guests").value;
-
-  // Validate input fields
-  if (!name || !email || !mobile || !date || !time || !guests) {
-    alert("Please fill all fields!");
+  if (!currentUser) {
+    showBookingToast("⚠️ Please login to book a table.", true);
     return;
   }
 
-  // Show success alert
-  document.getElementById("success-alert").style.display = "block";
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const mobile = document.getElementById("mobile").value.trim();
+  const date = document.getElementById("date").value;
+  const time = document.getElementById("time").value;
+  const guests = document.getElementById("guests").value.trim();
 
-  // Clear the form
-  document.getElementById("bookingForm").reset();
+  if (!name || !email || !mobile || !date || !time || !guests) {
+    showBookingToast("⚠️ Please fill all fields!", true);
+    return;
+  }
 
-  // Hide the success alert after 3 seconds
-  setTimeout(() => {
-    document.getElementById("success-alert").style.display = "none";
-  }, 3000);
+  const bookingData = {
+    name,
+    email,
+    mobile,
+    date,
+    time,
+    guests,
+    uid: currentUser.uid
+  };
 
-  // Save data to Firebase Realtime Database
-  writeBookingDataToFirebase({ name, email, mobile, date, time, guests });
+  push(ref(db, "bookings/"), bookingData)
+    .then(() => {
+      showBookingToast("✅ Booking successful!");
+      document.getElementById("bookingForm").reset();
+    })
+    .catch(err => {
+      console.error("❌ Firebase Error:", err);
+      showBookingToast("❌ Booking failed. Try again.", true);
+    });
 });
-
-// Function to write booking data to Firebase
-function writeBookingDataToFirebase(data) {
-  const bookingsRef = ref(db, 'bookings/'); // Reference to the 'bookings' node in Firebase
-  push(bookingsRef, data)  // Push the data to Firebase
-    .then(() => console.log("Data saved!"))
-    .catch(err => console.error("Error:", err));
-}

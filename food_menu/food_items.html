@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Food Menu</title>
     <link rel="stylesheet" href="food_item_css.css">
   
@@ -805,149 +805,8 @@
     ✅ Item added to cart!
   </div>
         
-  <script type="module">
-    import { auth, database, ref, set, get, onAuthStateChanged } from "../firebase-config.js";
+  <script type="module" src="food_menu_brain.js">
     
-    let userUid = null;
-    let cart = [];
-  
-    // Listen for authentication state
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        userUid = user.uid;
-        console.log("🔐 Logged in as:", user.email);
-        loadCartFromFirebase(); // Load cart from Firebase if user is logged in
-      } else {
-        console.warn("⚠️ User not logged in. Cart will not be saved.");
-      }
-    });
-    
-    // Load cart from Firebase
-    function loadCartFromFirebase() {
-      if (userUid) {
-        const cartRef = ref(database, `carts/${userUid}`);
-        get(cartRef).then((snapshot) => {
-          if (snapshot.exists()) {
-            cart = snapshot.val(); // Set cart from Firebase
-            renderCartItems(); // Render cart after loading from Firebase
-          } else {
-            cart = []; // If no cart data, initialize as empty
-            renderCartItems();
-          }
-        }).catch(err => console.error("❌ Firebase Error:", err));
-      }
-    }
-  
-    // Add to cart button logic
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', () => {
-          const item = button.closest('.food-item');
-          const name = item.querySelector('.food-name').textContent.trim();
-          const price = parseFloat(item.querySelector('.food-price').textContent.replace('₹', '').trim());
-          const img = item.querySelector('img').src;
-  
-          // Check if item exists in cart
-          const existingIndex = cart.findIndex(i => i.name === name);
-          if (existingIndex !== -1) {
-            cart[existingIndex].quantity += 1;
-          } else {
-            cart.push({ name, price, img, quantity: 1 });
-          }
-  
-          // Save updated cart to Firebase
-          if (userUid) {
-            const cartRef = ref(database, `carts/${userUid}`);
-            set(cartRef, cart)
-              .then(() => console.log("✅ Cart saved to Firebase"))
-              .catch(err => console.error("❌ Firebase Error:", err));
-          }
-  
-          // Show success alert
-          const successAlert = document.getElementById('success-alert');
-          successAlert.textContent = `✅ ${name} added to cart!`;
-          successAlert.style.display = 'flex';
-          successAlert.style.right = '20px';
-    
-          setTimeout(() => {
-            successAlert.style.right = '-300px';
-          }, 2000);
-          
-          renderCartItems(); // Re-render the cart after adding item
-        });
-      });
-    });
-  
-    // Helper function to render the cart items dynamically
-    function renderCartItems() {
-      const cartItemsContainer = document.getElementById('cart-items');
-      cartItemsContainer.innerHTML = '';
-      let subtotal = 0;
-  
-      cart.forEach((item, index) => {
-        const itemTotal = item.price * item.quantity;
-        subtotal += itemTotal;
-  
-        const itemDiv = document.createElement('div');
-        itemDiv.className = 'cart-item';
-        itemDiv.innerHTML = `
-          <img src="${item.img}" alt="${item.name}">
-          <div class="item-details">
-              <div class="item-name">${item.name}</div>
-              <div class="item-price">₹${item.price}</div>
-          </div>
-          <div class="item-actions">
-              <input type="number" class="item-qty" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this)">
-              <div class="item-subtotal">₹${itemTotal}</div>
-              <button onclick="removeItem(${index})" class="remove-btn">❌</button>
-          </div>
-        `;
-  
-        cartItemsContainer.appendChild(itemDiv);
-      });
-  
-      updateSummary(subtotal);
-    }
-  
-    // Update the quantity of an item and recalculate totals
-    function updateQuantity(index, input) {
-      const newQuantity = parseInt(input.value, 10);
-      if (newQuantity < 1) {
-        input.value = 1;
-        return;
-      }
-  
-      cart[index].quantity = newQuantity;
-      saveCartToFirebase();
-      renderCartItems();
-    }
-  
-    // Remove item from cart
-    function removeItem(index) {
-      cart.splice(index, 1);
-      saveCartToFirebase();
-      renderCartItems();
-    }
-  
-    // Update the cart to Firebase
-    function saveCartToFirebase() {
-      if (userUid) {
-        const cartRef = ref(database, `carts/${userUid}`);
-        set(cartRef, cart)
-          .then(() => console.log("✅ Cart saved to Firebase"))
-          .catch(err => console.error("❌ Firebase Error:", err));
-      }
-    }
-  
-    // Update the summary section
-    function updateSummary(subtotal) {
-      const discount = 0.05; // 5% discount
-      const discountAmount = subtotal * discount;
-      const total = subtotal - discountAmount;
-  
-      document.getElementById('subtotal').innerText = `₹${subtotal}`;
-      document.getElementById('total').innerText = `₹${total.toFixed(2)}`;
-    }
   </script>   
           </body>
 

@@ -89,13 +89,35 @@ body {
     justify-content: space-between;
     font-size: 1rem;
     margin-bottom: 20px;
+  
+    
+}
+.forgot_password,.remember_me{
+    padding: 4px;
+    text-decoration: none;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    text-align: start;
 
 }
+@media (min-width:1100px) {
+  .forgot_password,.remember_me{
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 1rem;
+  }
+  
+}
+.remember_me{
+    gap: 0.1rem;
+}
 
- .forgot_password{
-    text-decoration: none;
+.forgot_password{
     color: navy;
-
  }
 
 /* Sign In Button */
@@ -146,32 +168,39 @@ body {
     display: none;
     position: fixed;
     top: 20px;
-    right: -350px; /* Hidden off-screen */
-    width: 100%;
-    max-width: 500px;
-    min-width: 220px;
-    height: auto;
-    background-color: rgba(76, 175, 80, 0.85); /* Green - Success */
+    right: -300px;
+    /* right: 0; */
+    width: 300px;
+    height: 80px;
+    background-color: rgba(76, 175, 80, 0.8); /* Semi-transparent green */
     color: white;
-    padding: 16px 20px;
+    padding: 16px;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     z-index: 9999;
     font-weight: bold;
     font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: right 0.4s ease-in-out;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    text-align: center;
-    word-wrap: break-word;
+    transition: right 0.15s ease-in-out; /* Slide in effect */
+    backdrop-filter: blur(5px); /* Glassy effect */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Optional border for glassy effect */
+  }
+  
+  /* Optional animations for smooth sliding */
+  @keyframes slideIn {
+    from {
+      right: -300px;
+    }
+    to {
+      right: 20px;
+    }
   }
   
   /* Slide in */
   .toast.show {
-    right: 20px;
+    right: 0px;
   }
   
   /* Error variant */
@@ -211,3 +240,4 @@ body {
    
     
 }
+
