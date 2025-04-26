@@ -28,7 +28,7 @@ body {
   width: 100vw;
   align-self: center;
   justify-self: center;
-  max-width: 99vw;
+  /* max-width: 100vw; */
 }
 .hero_section {
   width: 100%;
@@ -50,6 +50,7 @@ body {
   width: 100%;
   background-color: rgba(14, 71, 49, 0.379);
 }
+
 header {
   align-self: start;
   width: 100%;
@@ -527,163 +528,6 @@ header {
   box-shadow: 0 0 10px rgb(211, 211, 211);
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  color: var(--dark-gray);
-  font-size: 1.2rem;
-  width: 20%;
-  text-align: center;
-  align-items: center;
-  border: 1px solid var(--orange);
-  padding: 1rem;
-  border-radius: 1rem;
-}
-.card a {
-  color: var(--body_background);
-  display: inline;
-}
-.quick_link_section {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  color: var(--dark-gray);
-  font-size: 1.2rem;
-  width: 90%;
-}
-#quick_link {
-  text-align: center;
-  padding: 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid var(--green);
-  font-size: 1rem;
-  border-radius: 1rem;
-  backdrop-filter: blur(2px);
-  transition: 0.1s ease-out;
-  width: 100%;
-}
-#quick_link:hover {
-  box-shadow: 0 0 8px var(--orange);
-  border-color: var(--orange);
-}
-
-.line {
-  width: 100%;
-  padding: 1rem 0 ;
-  background-color: var(--light-gray);
-  
-}
-.copyright {
-  color: var(--green);
-  text-align: center;
-  padding: 0.5rem;
-  font-size: 1rem;
-  font-weight: 700;
-}
-
-.end {
-  display: flex;
-  width: 90%;
-  height: auto;
-  background-color: var(--grey);
-  padding: 2rem;
-  margin: 2rem auto;
-  gap: 3rem;
-  border-radius: 0.6rem;
-  justify-self: center;
-  background-image: url(woddenbg.jpg);
-  background-size: cover;
-  flex-wrap: wrap;
-}
-.email_submit {
-  display: flex;
-  gap: 2rem;
-  justify-content: space-between;
-}
-.email_submit :nth-child(1) {
-  border-radius: 1rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  width: 70%;
-}
-.card2 {
-  width: 40%;
-  border: 1px solid var(--green);
-  padding: 1rem;
-  border-radius: 1rem;
-}
-.card2 input {
-  height: 2rem;
-  width: 60%;
-  padding: 1rem;
-  font-size: 1.2rem;
-  border-radius: 0.2rem;
-  border: 2px solid var(--orange);
-  box-decoration-break: unset;
-  outline: none;
-}
-.card2 button {
-  border: 2px solid var(--orange);
-  background-color: var(--orange);
-  padding: 0.1rem 0.3rem;
-  color: white;
-  width: 25%;
-  border-radius: 1rem;
-  font-size: 1rem;
-  font-weight: 600;
-  transition: 0.3s;
-}
-.card2 button:hover {
-  background-color: transparent;
-  color: var(--orange);
-}
-a {
-  text-decoration: none;
-}
-.end h1 {
-  color: var(--green);
-  font-size: 1.6rem;
-}
-.card2 p {
-  font-size: 1rem;
-  line-height: 1.7rem;
-  margin: 2rem auto;
-  color: var(--orange);
-  text-align: justify;
-}
-
-.opening_hrs {
-  display: flex;
-  flex-direction: column;
-  gap: 1.4rem;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  letter-spacing:1px;
-  border: 1px solid rgb(216, 51, 84);
-  border-radius: 1rem;
-  padding: 1rem;
-}
-.op_heading,
-.op_day,
-.op_time {
-  font-family: "Dancing Script", cursive !important; /* Force apply */
-  font-weight: bold;
-  font-size: 3rem;
-  color: var(--orange);
-}
-.op_day {
-  color: var(--green);
-}
-@media (max-width:1100px) {
-  .op_time{
-    font-size: 2.3rem;
-  }
-  
-}
 
 /* MAP MODAL STYLES */
 .map-modal {
@@ -725,6 +569,174 @@ a {
   text-decoration: double;
 }
 
+.end {
+  display: flex;
+  width: 100%;
+  height: auto;
+  padding: 2rem ;
+  background-color: var(--green-light);
+  background-color: var(--orange);
+  background-image: url(orange.jpg);
+  background-size:cover;
+   
+  margin: 2rem auto;
+  gap: 3rem;
+  justify-self: center;
+  justify-content: space-evenly;
+  align-items: stretch;
+  flex-wrap: wrap;
+  position: relative;
+}
+.end::before{
+  content: "";
+  height:100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position:absolute;
+  background-color: rgba(2, 98, 16, 0.454);
+}
+.card,.card2,.opening_hrs{
+  z-index: 2;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  color: var(--dark-gray);
+  font-size: 1.2rem;
+  width: 20%;
+  text-align: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.card a {
+  color: var(--body_background);
+  display: inline;
+}
+.quick_link_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--dark-gray);
+  font-size: 1.2rem;
+  width: 90%;
+}
+#quick_link {
+  text-align: center;
+  padding: 0.5rem ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.1s ease-out;
+  border-bottom: 2px solid transparent;
+
+  
+}
+#quick_link:hover {
+  border-color: var(--orange);
+  letter-spacing: 2px;
+}
+
+.card2 {
+  width: 40%;
+  padding: 2rem;
+}
+
+.email_submit {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  border: 2px solid orange;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+}
+
+.card2 input {
+  height: 2rem;
+  width: 60%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  outline: none;
+  border:none;
+  background: transparent;
+  color: orange;
+}
+.card2 button {
+  border: 2px solid var(--orange);
+  background-color: var(--orange);
+  padding: 0.1rem 0.3rem;
+  color: white;
+  /* width: 15%; */
+  height: 2rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.card2 button:hover {
+  background-color: transparent;
+  color: var(--orange);
+}
+a {
+  text-decoration: none;
+}
+.end h1 {
+  color: var(--green);
+  font-size: 1.6rem;
+}
+.card2 p {
+  font-size: 1rem;
+  line-height: 1.7rem;
+  margin: 2rem auto;
+  color: var(--orange);
+  text-align: justify;
+}
+
+.opening_hrs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  letter-spacing:1px;
+  border-radius: 1rem;
+  padding: 0.8rem;
+}
+.op_heading,
+.op_day,
+.op_time {
+  font-family: "Dancing Script", cursive !important; /* Force apply */
+  font-weight: bold;
+  font-size: 3rem;
+  color: var(--orange);
+}
+.op_day {
+  color: var(--green);
+}
+@media (max-width:1100px) {
+  .op_time{
+    font-size: 2.3rem;
+  }
+  
+}
+.line {
+  z-index: 2;
+  width: 100%;
+  
+}
+.copyright {
+  color: rgb(203, 203, 203);
+  text-align: center;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
 /* CSS for the success alert box */
 .success-alert {
   position: fixed;
@@ -789,22 +801,6 @@ a {
   .f_details {
     width: 90vw;
     margin: 2rem 0;
-  }
-  .end {
-    width: 100%;
-    flex-direction: column;
-    margin: 2rem auto;
-    gap: 2rem;
-    background-image: url(woddenbg_rev.jpg);
-  }
-  .card {
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-  }
-  .card2 {
-    width: 100%;
-    text-align: center;
   }
 }
 
@@ -898,16 +894,13 @@ a {
 
 /* Show sidebar and button on mobile */
 @media (max-width: 1100px) {
-  .end{
-    padding: 0.8rem;
-    gap: 0.8rem;
-  }
+  
   
   .list,
   .list-icons {
     display: none;
   }
-
+  
   .sidelist,
   .sidelist-icons {
     display: block;
@@ -915,25 +908,55 @@ a {
   header {
     padding: 2rem 1rem;
   }
+  .end {
+    width: 100%;
+    flex-direction: column;
+    margin: 2rem auto;
+    gap: 2rem;
+    border-radius: 0;
+    padding:2rem 1rem;
+    background-image: url(orange\ -\ Copy.jpg);
+    background-position: 100% 100%;
+    filter: brightness(0.9);
+    position:relative;
+  }
+ 
+  .card {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .card2 {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px dotted orange;
+  }
   .quick_link_section {
     flex-direction: row;
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items:center;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px dotted orange;
   }
   #quick_link {
     text-align: center;
-    padding: 0.6rem;
+    padding: 0.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid var(--green);
-    font-size: 1rem;
-    border-radius: 1rem;
-    width: 45%;
+    font-size: 1.2rem;
+    height: 3rem;
+    border-radius: 0.4rem;
     max-width: 300px;
     min-width: 100px;
+    /* border: 1px solid white; */
+    box-shadow: 0 0 2px white;
+    font-weight: 600;
+   
   }
 }
 
@@ -969,3 +992,8 @@ a {
 .toast.hidden {
   right: -300px;
 }
+
+
+
+
+
