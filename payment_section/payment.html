@@ -6,13 +6,18 @@
   <title>Payment Options</title>
   <style>
     :root {
-      --primary-green: #28a745;
-      --primary-orange: #ff7f0e;
+      --primary-green: #719a0a;
+      --primary-orange: #fbaf32;
       --light-bg: #fdfdfd;
       --light-border: #ddd;
       --input-bg: #fff;
     }
 
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #f5f6f7;
@@ -27,11 +32,27 @@
       border-radius: 15px;
       box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
       padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .dummy{
+      position: absolute;
+      top:0;
+      right: 0;
+      background: rgb(255, 122, 148);
+      border-bottom-left-radius: 1rem;
+      display: flex;
+      padding: 0.8rem;
+      color:white;
+      font-weight: 600;
     }
 
     h1 {
       color: var(--primary-green);
       margin-bottom: 1rem;
+    }
+    #selectline{
+      margin: 1rem 0;
     }
 
     .payment-methods {
@@ -107,30 +128,126 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
-
+    
     .back-btn {
       background-color: #e9ecef;
       color: #333;
     }
-
+    .back-btn a {
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1rem;
+      color: navy;
+    }
+    
     .back-btn:hover {
       background-color: #d6d6d6;
     }
-
+    
     .proceed-btn {
+      font-weight: 600;
       background-color: var(--primary-orange);
+    
       color: white;
     }
 
     .proceed-btn:hover {
-      background-color: #e96e00;
+      background-color: #fb8d2c;
+    }
+    @media (max-width: 1100px) {
+  body {
+    padding: 0.4rem; /* Remove body padding */
+  }
+ 
+
+  .payment-container {
+   padding: 1rem;
+   margin: 3rem 0;
+  }
+  
+  h1 {
+    font-size: 1.8rem; /* Reduce the font size of the heading */
+  }
+  
+  .payment-methods {
+    width: 100%;
+    flex-direction: column; /* Stack payment methods vertically */
+    gap: 1rem;
+  }
+
+  .payment-method {
+    flex: none; /* Prevent the items from growing */
+    width: 100%;
+    padding: 0.8rem; /* Make the options smaller */
+    font-size: 0.9rem; /* Smaller text for options */
+  }
+
+  .form-group input {
+    padding: 0.7rem; /* Adjust padding for smaller screens */
+    font-size: 0.9rem; /* Smaller text for inputs */
+  }
+
+  .button-group {
+    gap: 1rem;
+  }
+  
+  .back-btn {
+    width: 50%; /* Make the "Return" button full-width */
+    font-size: 0.8rem; /* Make the text smaller */
+    padding: 0.7rem 1rem; /* Make the button smaller */
+  }
+  
+  .proceed-btn {
+    font-weight: 600;
+    width: 100%; /* Make the "Proceed" button full-width */
+    font-size: 1.2rem; /* Make the text larger */
+    padding: 1rem 1.5rem; /* Make the button larger */
+  }
+}
+   /* Success Alert Styles */
+   #success-alert {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: -300px;
+      width: 300px;
+      height: 80px;
+      background-color: rgba(76, 175, 80, 0.8); /* Semi-transparent green */
+      color: white;
+      padding: 16px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+      font-weight: bold;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: right 0.15s ease-in-out; /* Slide in effect */
+      backdrop-filter: blur(5px); /* Glassy effect */
+      border: 1px solid rgba(255, 255, 255, 0.3); /* Optional border for glassy effect */
+    }
+
+    /* Optional animations for smooth sliding */
+    @keyframes slideIn {
+      from {
+        right: -300px;
+      }
+      to {
+        right: 20px;
+      }
+    }
+
+    .success-msg {
+      color: black; /* Text color */
     }
   </style>
 </head>
 <body>
   <div class="payment-container">
+    <div class="dummy">Dummy</div>
     <h1>Payment</h1>
-    <p>Select your payment method</p>
+    <p id="selectline">Select your payment method</p>
 
     <div class="payment-methods">
       <div class="payment-method active" onclick="selectMethod('credit')">
@@ -148,19 +265,19 @@
     <div id="credit" class="form-section active">
       <div class="form-group">
         <label>Cardholder's Name</label>
-        <input type="text" placeholder="Name" />
+        <input type="text" id="cardName" placeholder="Name" />
       </div>
       <div class="form-group">
         <label>Card Number</label>
-        <input type="text" placeholder="XXXX-XXXX-XXXX-1234" />
+        <input type="text" id="cardNumber" placeholder="XXXX-XXXX-XXXX-1234" />
       </div>
       <div class="form-group">
         <label>Expiration</label>
-        <input type="text" placeholder="MM/YY" />
+        <input type="text" id="expDate" placeholder="MM/YY" />
       </div>
       <div class="form-group">
         <label>CVV</label>
-        <input type="text" placeholder="111" />
+        <input type="text" id="cvv" placeholder="111" />
       </div>
     </div>
 
@@ -168,7 +285,7 @@
     <div id="paypal" class="form-section">
       <div class="form-group">
         <label>PayPal Email</label>
-        <input type="email" placeholder="user@example.com" />
+        <input type="email" id="paypalEmail" placeholder="user@example.com" />
       </div>
       <p style="color: gray;">You will be redirected to PayPal to complete your purchase.</p>
     </div>
@@ -177,20 +294,23 @@
     <div id="amazon" class="form-section">
       <div class="form-group">
         <label>Amazon Account Email</label>
-        <input type="email" placeholder="amazonuser@example.com" />
+        <input type="email" id="amazonEmail" placeholder="amazonuser@example.com" />
       </div>
       <p style="color: gray;">Amazon Pay will securely handle your transaction.</p>
     </div>
 
     <div class="button-group">
-      <button class="back-btn"> <a href="../cart_folder/cart.html">  ← Return to Store</a></button>
-      <button class="proceed-btn">Proceed →</button>
+      <button class="back-btn"> <a href="../cart_folder/cart.html"> Back to Store</a></button>
+      <button class="proceed-btn" onclick="submitPayment()">Proceed</button>
     </div>
+  </div>
+   
+  <div id="success-alert" class="success-msg">
+    Payment Successful! Thank you for your purchase.
   </div>
 
   <script>
     function selectMethod(method) {
-      // Toggle active class on buttons
       document.querySelectorAll('.payment-method').forEach(btn => btn.classList.remove('active'));
       if (method === 'credit') {
         document.querySelectorAll('.payment-method')[0].classList.add('active');
@@ -200,7 +320,6 @@
         document.querySelectorAll('.payment-method')[2].classList.add('active');
       }
 
-      // Show selected form, hide others
       ['credit', 'paypal', 'amazon'].forEach(id => {
         const section = document.getElementById(id);
         if (id === method) {
@@ -210,6 +329,64 @@
         }
       });
     }
+
+    function submitPayment() {
+  let paymentMethod = document.querySelector('.payment-method.active').textContent.trim();
+  let isValid = true;
+  let message = "";
+
+  const creditCardRegex = /^(\d{4}[-\s]??\d{4}[-\s]??\d{4}[-\s]??\d{4}|\d{16})$/;
+  const expDateRegex = /^(0[1-9]|1[0-2])\/(2[0-9]|20[2-9][0-9])$/;
+  const cvvRegex = /^\d{3,4}$/;
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  if (paymentMethod === "Credit Card") {
+    const name = document.getElementById('cardName').value;
+    const cardNumber = document.getElementById('cardNumber').value;
+    const expDate = document.getElementById('expDate').value;
+    const cvv = document.getElementById('cvv').value;
+
+    if (!name || !cardNumber || !expDate || !cvv) {
+      isValid = false;
+      message = "Please fill out all fields for Credit Card.";
+    } else if (!creditCardRegex.test(cardNumber)) {
+      isValid = false;
+      message = "Please enter a valid card number.";
+    } else if (!expDateRegex.test(expDate)) {
+      isValid = false;
+      message = "Please enter a valid expiration date (MM/YY).";
+    } else if (!cvvRegex.test(cvv)) {
+      isValid = false;
+      message = "Please enter a valid CVV.";
+    }
+  } else if (paymentMethod === "PayPal") {
+    const paypalEmail = document.getElementById('paypalEmail').value;
+    if (!paypalEmail || !emailRegex.test(paypalEmail)) {
+      isValid = false;
+      message = "Please enter a valid PayPal email.";
+    }
+  } else if (paymentMethod === "Amazon Pay") {
+    const amazonEmail = document.getElementById('amazonEmail').value;
+    if (!amazonEmail || !emailRegex.test(amazonEmail)) {
+      isValid = false;
+      message = "Please enter a valid Amazon account email.";
+    }
+  }
+
+  if (isValid) {
+    // Show success message
+    const successAlert = document.getElementById('success-alert');
+    successAlert.style.display = "flex";
+    successAlert.style.animation = "slideIn 0.3s forwards";
+    
+    setTimeout(() => {
+      successAlert.style.display = "none";
+    }, 3000); // Hide alert after 3 seconds
+  } else {
+    alert(message);
+  }
+}
+
   </script>
 </body>
 </html>

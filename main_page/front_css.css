@@ -610,7 +610,6 @@ header {
   top: 0;
   left: 0;
   position:absolute;
-  background-color: rgba(2, 98, 16, 0.454);
 }
 .card,.card2,.opening_hrs{
   z-index: 2;
@@ -1008,8 +1007,5 @@ a {
 .toast.hidden {
   right: -300px;
 }
-
-
-
 
 

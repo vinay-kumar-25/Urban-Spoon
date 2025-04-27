@@ -23,8 +23,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = document.getElementById("email")?.value || "";
         const phone = document.getElementById("phone")?.value || "";
         const password = document.getElementById("password")?.value || "";
-
+        const securityKey=document.getElementById("admin-key")?.value || "";
         console.log("📥 Form Data:", { firstName, lastName, email, phone, password });
+
+        const predefinedKey = "gatekholo";  // Set your predefined security key here
+        if (securityKey !== predefinedKey) {
+            alert("❌ Invalid Security Key.");
+            return;
+        }
 
         // If any field is empty, show an error
         if (!firstName || !lastName || !email || !phone || !password) {

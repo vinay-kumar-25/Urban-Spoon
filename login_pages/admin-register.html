@@ -64,9 +64,10 @@ border-radius: 1rem;
         }
         .register-form {
             /* background: white; */
-            padding: 2rem;
+            padding: 1rem;
             border-radius: 1rem;
-            /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); */
+            display: flex;
+            flex-flow: column ;
             border: 2px solid var(--light-gray);
             width: 100%;
             
@@ -76,6 +77,7 @@ border-radius: 1rem;
             margin-bottom: 1.5rem;
             font-size: 1.5rem;
             color: var(--dark-gray);
+            align-self: center;
         }
         .form-group {
             margin-bottom: 1rem;
@@ -102,11 +104,11 @@ border-radius: 1rem;
         #key{
             color: rgb(223, 47, 82);
         }
-        #key:focus{
+        #admin-key:focus{
             border-color: rgb(222, 54, 88);
         }
-        #key::placeholder{
-            color: crimson;
+        #admin-key::placeholder{
+            color: rgb(223, 73, 103);
         }
         @media (max-width:1100px) {
             .container{
@@ -144,7 +146,7 @@ border-radius: 1rem;
             </div>
             <div class="form-group">
                 <label id="key">Admin Key</label>
-                <input type="password" id="key" placeholder="Security Key" required>
+                <input type="password" id="admin-key" placeholder="Security Key" required>
             </div>
             
                 <input type="submit" class="add-admin-btn" value="Register">

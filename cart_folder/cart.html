@@ -135,11 +135,11 @@ window.removeItem = removeItem; // 👈 Add this
 
 
   // Update the summary section
+  
   function updateSummary(subtotal) {
     const discount = 0.05; // 5% discount
     const discountAmount = subtotal * discount;
     const total = subtotal - discountAmount;
-
     document.getElementById('subtotal').innerText = `₹${subtotal}`;
     document.getElementById('total').innerText = `₹${total.toFixed(2)}`;
 }
@@ -165,6 +165,18 @@ function updateFirebaseCart(cart) {
     set(cartRef, cart);
   }
 }
+
+const paybtn = document.getElementsByClassName("checkout_button")[0];  // Access the first button in the collection
+paybtn.addEventListener('click', () => {
+  const total = parseFloat(document.getElementById('total').innerText.replace('₹', '')); // Get the total from the DOM
+  if (total == 0) {
+    alert("Add item to the cart first");
+    return;
+  } else {
+    window.location.href = "../payment_section/payment.html";
+  }
+});
+
 
 
 </script> 
