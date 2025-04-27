@@ -1,121 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Dashboard</title>
-  <link rel="stylesheet" href="admin.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Urban Spoon Dashboard</title>
+  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
   <div class="container">
     <!-- Sidebar -->
-    <div class="sidebar">
-      <h2>Urban</h2><h2>Spoon</h2>
+    <div class="side_back">
+      <aside class="sidebar">
+        <h2>Urban</h2><h2>Spoon</h2>
+        <div class="dynamic-content">
+          <!-- Dynamic items go here -->
+        </div>
+      </aside>
     </div>
 
     <!-- Main Content -->
-    <div class="main">
-      <!-- Header -->
-      <div class="header">
-        <div class="menu-admin">
-          <h2>Dashboard</h2>
-        </div>
-        <div class="user-info">
-          <button class="menu-btn">Menu</button>
-          <img src="https://flagcdn.com/in.svg" width="24" />
-          <span class="username">Admin</span>
-        </div>
-      </div>
+    <main class="main">
+      <header class="top-bar">
+        <div class="dashboard">Dashboard Overview</div>
+        <div class="admin">Admin Panel <span class="flag">🏳️‍🌈</span></div>
+      </header>
 
-      <!-- Cards and Chart Section -->
-      <div class="top-section">
-        <!-- Left Cards -->
-        <div class="left-column">
-          <div class="card">
-            <h4>Most Liked Dishes</h4>
-            <div class="dishes-list"></div>
-          </div>
-          <div class="card">
-            <h4>Profit</h4>
-            <div class="chart-placeholder">
-              <div class="donut"></div>
+      <section class="grid-content">
+        <!-- Left Panel -->
+        <div class="left-top-panel">
+          <div class="favourite-dishes">
+            <h2>Top Favourite Dishes</h2>
+            <div class="fav-content">
+              <!-- Dish items will be dynamically inserted here using JavaScript -->
             </div>
           </div>
+          
+
+          <div class="info-card">
+            <div class="pie" id="revenuePie"></div>
+            <div class="info-text">Total Revenue</div>
+          </div>
+          
+          <div class="info-card">
+            <div class="pie" id="ordersPie"></div>
+            <div class="info-text">Live Orders</div>
+          </div>
+          
+          <div class="info-card">
+            <div class="pie" id="usersPie"></div>
+            <div class="info-text">Registered Users</div>
+          </div>
+
+          <div class="booked-tables">
+            <h2>Recent Table Bookings</h2>
+            <div class="table-content"></div>
+          </div>
         </div>
 
-        <!-- Right: Customer Testimonials -->
-        <div class="right-column">
-          <h2 class="section-title">Customer Testimonials</h2>
-          <br> <br>
-          <div class="review-card">
-            <h4>Rahul Sharma</h4>
-            <p>"Food is amazing!"</p>
-            <p class="email">rahul@example.com</p>
+        <!-- Right Panel -->
+        <div class="right-panel">
+          <div class="small-card">
+            <h2>Loyal Customers</h2>
+            <div class="loyal-customers-content"></div>
           </div>
-          <div class="review-card">
-            <h4>Anjali Verma</h4>
-            <p>"Great ambiance and service."</p>
-            <p class="email">anjali@example.com</p>
-          </div>
-          <div class="review-card">
-            <h4>Vikram Singh</h4>
-            <p>"Delicious and affordable."</p>
-            <p class="email">vikram@example.com</p>
-          </div>
-          <div class="review-card">
-            <h4>Priya Joshi</h4>
-            <p>"Perfect for family dinners."</p>
-            <p class="email">priya@example.com</p>
-          </div>
-          <div class="review-card">
-            <h4>Vikram Singh</h4>
-            <p>"Delicious and affordable."</p>
-            <p class="email">vikram@example.com</p>
-          </div>
-          <div class="review-card">
-            <h4>Priya Joshi</h4>
-            <p>"Perfect for family dinners."</p>
-            <p class="email">priya@example.com</p>
-          </div>
-         
-        </div>
-      </div>
+          
+          <div class="small-card" id="ongoing-orders-card">
+            <span class="card-title">Ongoing Orders</span>
+            <span class="card-value">0</span> </div>
 
-      <!-- Bookings Table Section -->
-      <div class="bookings">
-        <h3 class="section-title">Booking Table</h3>
-        <div class="table-placeholder">
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Guests</th>
-                <th>Contact</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Rohit Sen</td>
-                <td>2025-04-20</td>
-                <td>7:00 PM</td>
-                <td>4</td>
-                <td>rohit@example.com</td>
-              </tr>
-              <tr>
-                <td>Kajal Mehta</td>
-                <td>2025-04-21</td>
-                <td>8:30 PM</td>
-                <td>2</td>
-                <td>kajal@example.com</td>
-              </tr>
-            </tbody>
-          </table>
+            
+          <div class="testimonials">
+            <h2>Customer Testimonials</h2>
+            <div class="testimonials-content"></div>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   </div>
+  <script type="module" src="admin.js"></script>
 </body>
 </html>
