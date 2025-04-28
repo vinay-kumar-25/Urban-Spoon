@@ -1,5 +1,9 @@
 // Import Firebase config and services from firebase-config.js
-import { auth, database, ref, get } from '../firebase-config.js'; // Correct path to the config file
+import { auth, database, ref, get  } from '../firebase-config.js'; // Correct path to the config file
+// Correct import statement for Firebase functions
+import {onValue } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+import { app } from '../firebase-config.js';  // This remains for your app initialization
+
 
 // DOM element where loyal users will be displayed
 const loyalCustomersContent = document.querySelector('.loyal-customers-content');
@@ -175,3 +179,128 @@ function populateSidebar() {
 
 // Call the function to populate the sidebar
 populateSidebar();
+
+
+// Function to fetch and display recent table bookings
+function displayBookings() {
+  const tableContent = document.querySelector(".table-content");
+  const bookingsRef = ref(database, "bookings/");
+
+  // Fetch the data from Firebase Realtime Database
+  get(bookingsRef)
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        const bookings = snapshot.val();
+        tableContent.innerHTML = ''; // Clear previous bookings
+
+        // Loop through the bookings and display them
+        Object.keys(bookings).forEach((key) => {
+          const booking = bookings[key];
+          const bookingElement = document.createElement("div");
+          bookingElement.classList.add("booking-item");
+
+          // Create the booking details HTML
+          bookingElement.innerHTML = `
+            <p><strong>Name:</strong> ${booking.name}</p>
+            <p><strong>Email:</strong> ${booking.email}</p>
+            <p><strong>Mobile:</strong> ${booking.mobile}</p>
+            <p><strong>Date:</strong> ${booking.date}</p>
+            <p><strong>Time:</strong> ${booking.time}</p>
+            <p><strong>Guests:</strong> ${booking.guests}</p>
+          `;
+
+          // Append the booking item to the table content
+          tableContent.appendChild(bookingElement);
+        });
+      } else {
+        tableContent.innerHTML = '<p>No recent bookings.</p>';
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching bookings:", error);
+      tableContent.innerHTML = '<p>Failed to load bookings.</p>';
+    });
+}
+
+// Call the function when the page loads or whenever you want to refresh the list
+document.addEventListener("DOMContentLoaded", displayBookings);
+
+
+
+
+
+
+// ... other code ...
+
+async function fetchUserEmail(userId) {
+    const userRef = ref(database, `users/${userId}/email`);
+    try {
+        const snapshot = await get(userRef);
+        return snapshot.exists() ? snapshot.val() : 'N/A';
+    } catch (error) {
+        console.error("Error fetching user email:", error);
+        return 'N/A';
+    }
+}
+
+function updateOngoingOrders() {
+    const ordersCardContent = document.getElementById("ongoing-orders-card").querySelector(".card-content");
+    const cartsRef = ref(database, "carts/");
+
+    onValue(cartsRef, async (snapshot) => {
+        if (snapshot.exists()) {
+            const cartsData = snapshot.val();
+            let htmlContent = "";
+
+            for (let userId in cartsData) {
+                const userCart = cartsData[userId];
+                const userEmail = await fetchUserEmail(userId); // Fetch user email
+
+                if (Array.isArray(userCart)) {
+                    userCart.forEach(item => {
+                        if (item && item.img && item.name && item.quantity && item.price) {
+                            htmlContent += `
+                                <div class="order-item">
+                                    <img src="${item.img}" alt="${item.name}" class="order-item-img">
+                                    <div class="order-item-details">
+                                        <h4>${item.name}</h4>
+                                        <p>Item ${item.quantity}</p>
+                                        <p>Price ₹${item.price}</p>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    });
+                } else if (typeof userCart === 'object' && userCart !== null) {
+                    for (let itemId in userCart) {
+                        const item = userCart[itemId];
+                        if (item && item.img && item.name && item.quantity && item.price) {
+                            htmlContent += `
+                                <div class="order-item">
+                                    <img src="${item.img}" alt="${item.name}" class="order-item-img">
+                                    <div class="order-item-details">
+                                        <h4>${item.name}</h4>
+                                        <p>User: ${userId.substring(0, 6)}...</p>
+                                        <p>Email: ${userEmail}</p>
+                                        <p>Quantity: ${item.quantity}</p>
+                                        <p>Price: ₹${item.price}</p>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    }
+                }
+            }
+
+            ordersCardContent.innerHTML = htmlContent;
+        } else {
+            ordersCardContent.innerHTML = "<p>No ongoing orders yet.</p>";
+        }
+    }, (error) => {
+        console.error("❌ Error fetching carts:", error);
+    });
+}
+
+updateOngoingOrders();
+
+// ... rest of your code ...
