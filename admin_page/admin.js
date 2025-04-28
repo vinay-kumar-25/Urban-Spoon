@@ -304,3 +304,82 @@ function updateOngoingOrders() {
 updateOngoingOrders();
 
 // ... rest of your code ...
+
+
+
+
+
+
+
+const BASE_REGISTERED_USERS = 10;
+const PROFIT_MARGIN = 0.05;
+
+// Function to safely update the inner HTML of an element
+function safeInnerHTMLUpdate(elementId, value) {
+    const element = document.getElementById(elementId);
+    if (element && element.querySelector('.middle_cap')) {
+    } else {
+        console.error(`Could not find element with ID '${elementId}' or its '.middle_cap' child.`);
+    }
+}
+
+// Function to safely update the background style of an element
+function safeBackgroundUpdate(elementId, backgroundStyle) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.style.background = backgroundStyle;
+    } else {
+        console.error(`Could not find element with ID '${elementId}' to update background.`);
+    }
+}
+
+
+
+function updateDashboard() {
+    let totalSale = 0;
+    let liveOrdersCount = 0;
+
+    // 1. Reliable listener for carts data
+    const cartsRef = ref(database, "carts/");
+    onValue(cartsRef, (snapshot) => {
+        totalSale = 0;
+        liveOrdersCount = 0;
+
+        snapshot.forEach((userSnapshot) => {
+            const userCart = userSnapshot.val();
+            if (userCart) {
+                for (const dishId in userCart) {
+                    const item = userCart[dishId];
+                    if (item && typeof item.price === 'number' && typeof item.quantity === 'number') {
+                        totalSale += item.price * item.quantity;
+                        liveOrdersCount++; // Consider if you need to count unique users instead
+                    } else if (item) {
+                        console.warn(`Invalid price or quantity found in cart:`, item);
+                    }
+                }
+            }
+        });
+
+        const profit = totalSale * PROFIT_MARGIN;
+        safeInnerHTMLUpdate("revenuePie", `₹${profit.toFixed(2)}`);
+        safeBackgroundUpdate("revenuePie", profit > 0 ? "conic-gradient(#4CAF50 0% 100%)" : "conic-gradient(#F44336 0% 100%)");
+        safeInnerHTMLUpdate("ordersPie", liveOrdersCount);
+        safeBackgroundUpdate("ordersPie", liveOrdersCount > 0 ? "conic-gradient(#4CAF50 0% 100%)" : "conic-gradient(#F44336 0% 100%)");
+    }, (error) => {
+        console.error("Error fetching cart data:", error);
+    });
+
+    // 2. Reliable listener for bookings data
+    const bookingsRef = ref(db, "bookings/");
+    onValue(bookingsRef, (snapshot) => {
+        const bookedTablesCount = snapshot.size || (snapshot.exists() ? Object.keys(snapshot.val()).length : 0);
+        const totalRegistered = BASE_REGISTERED_USERS + bookedTablesCount;
+        safeInnerHTMLUpdate("usersPie", totalRegistered);
+        safeBackgroundUpdate("usersPie", totalRegistered > BASE_REGISTERED_USERS ? "conic-gradient(#4CAF50 0% 100%)" : "conic-gradient(#F44336 0% 100%)");
+    }, (error) => {
+        console.error("Error fetching bookings data:", error);
+    });
+}
+
+// Call the update function to start listening for changes
+updateDashboard();

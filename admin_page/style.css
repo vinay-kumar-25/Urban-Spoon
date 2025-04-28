@@ -382,14 +382,30 @@ body {
   overflow: hidden;
   gap: 0.4rem;
 }
-
 .pie {
   width: 70px;
   height: 70px;
+  background: conic-gradient(#4CAF50 0% 25%, #f1f1f1 25% 100%);
   border-radius: 50%;
-  /* Example conic-gradient */
-  background: conic-gradient(var(--orange) 0% 75%, #eee 75% 100%); /* Example: 75% orange */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.middle_cap {
+  background: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #333;
+}
+
+
 
 .info-text {
   font-size: 0.8rem;
@@ -692,6 +708,16 @@ body {
    .pie{
       width: 50px; /* reduce size */
       height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+   .middle_cap{
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+
    }
 
    .booked-tables{
